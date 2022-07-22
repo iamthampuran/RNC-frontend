@@ -1,0 +1,12 @@
+.logout{
+    width: 350px;
+    padding: 4px;
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    background-color:rgb(244, 243, 243);;
+    z-index: 101;
+    font-family: apple;
+}

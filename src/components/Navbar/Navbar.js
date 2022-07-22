@@ -32,7 +32,7 @@ function NavBar() {
       
        <a href="/sign-in" >
        <h1 className='rnc'>RESEARCH AND CONSULTANCY CELL</h1></a>
-      { <Banner/> }
+       <Banner/> 
 </div>
 
 

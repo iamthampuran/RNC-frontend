@@ -7,13 +7,16 @@ import { Link, useNavigate } from "react-router-dom";
 function AddD() {
     const [data2, setData2] = useState({
 		
-		title: "",
-    year: "",
-		author: "",
-		nameJ: "",
-        aff: "",
-        details: "",
-		detailsI: ""
+		Year: 0,
+    Title:"",
+    Faculties:"",
+    Type:"",
+    SubType:"",
+    Name:"",
+    Details:"",
+    ImpactFactor:"",
+    Affiliated: "",
+    Branch:""
 	});
   
 	const [error, setError] = useState("");
@@ -21,6 +24,7 @@ function AddD() {
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData2({ ...data2, [input.name]: input.value });
+    console.log(data2)
 	};
 
   
@@ -31,7 +35,7 @@ function AddD() {
 	const handleSub = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:8080/api/addDeatails";
+			const url = "http://localhost:3001/Public/add";
 			const { data: res } = await axios.post(url, data2);
 			navigate("/");
 			console.log(res.message);
@@ -56,17 +60,17 @@ function AddD() {
         <div className="signupParentDiv">
         <h3 >Enter the details of published papers only..!!</h3>
           <form >
-            <label>year</label>
+            <label>Year</label>
             <br />
             <input style={{ width:"500px" }}
               className="input"
-              type="number"
+              type="Number"
               //id="fname"
               //name="name"
-              placeholder="Enter the year"
-              name="year"
+              placeholder="Year"
+              name="Year"
               onChange={handleChange}
-              value={data2.year}
+              value={data2.Year}
               required
             />
             <br />
@@ -79,13 +83,13 @@ function AddD() {
               id="fname"
               //name="email"
               placeholder="Enter the title in capital letter"
-              name="title"
+              name="Title"
               onChange={handleChange}
-              value={data2.title}
+              value={data2.Title}
               required
             />
             <br />
-            <label htmlFor="lname">Authors</label>
+            <label htmlFor="lname">Faculties</label>
             <br />
             <input
              style={{ width:"500px" }}
@@ -94,14 +98,14 @@ function AddD() {
               //id="lname"
               //name="phone"
               placeholder="enter name of authors seperated by coma"
-              name="author"
+              name="Faculties"
               onChange={handleChange}
-              value={data2.author}
+              value={data2.Faculties}
               required
               
             />
              <br />
-            <label htmlFor="lname"> Name of journel/conference/publisher of book</label>
+            <label htmlFor="lname">Type(journel/conference/publisher of book)</label>
             <br />
             <input
               style={{ width:"500px" }}
@@ -110,11 +114,44 @@ function AddD() {
               //id="lname"
               //name="phone"
               placeholder="enter"
-              name="nameJ"
+              name="Type"
               onChange={handleChange}
-              value={data2.nameJ}
+              value={data2.Type}
               required
             />
+            <br/>
+            <label htmlFor="lname">SubType(SCI/SCOPUS/National/International/Other)</label>
+            <br />
+            <input
+              style={{ width:"500px" }}
+              className="input"
+              type="text"
+              //id="lname"
+              //name="phone"
+              placeholder="enter"
+              name="SubType"
+              onChange={handleChange}
+              value={data2.SubType}
+              required
+            />
+
+<br/>
+            <label htmlFor="lname">Name of publication</label>
+            <br />
+            <input
+              style={{ width:"500px" }}
+              className="input"
+              type="text"
+              //id="lname"
+              //name="phone"
+              placeholder="enter"
+              name="Name"
+              onChange={handleChange}
+              value={data2.Name}
+              required
+            />
+
+
              <br />
             <label htmlFor="lname">publication Details (volume,issue,pages) or DOI</label>
             <br />
@@ -125,9 +162,9 @@ function AddD() {
               //id="lname"
               //name="phone"
               placeholder="enter publication Details "
-              name="details"
+              name="Details"
               onChange={handleChange}
-              value={data2.details}
+              value={data2.Details}
               required
             />
              <br />
@@ -136,31 +173,39 @@ function AddD() {
             <input
               style={{ width:"500px" }}
               className="input"
-              type="number"
+              type="Text"
               //id="lname"
               //name="phone"
-              placeholder="enter deatils"
-              name="detailsI"
+              placeholder="enter details"
+              name="ImpactFactor"
               onChange={handleChange}
-              value={data2.detailsI}
+              value={data2.ImpactFactor}
               required
               />
             <br />
             <label htmlFor="lname">MITS affiliated</label>
             <br />
-            <input
-              style={{ width:"500px" }}
-              className="input"
-              type="text"
-              //id="lname"
-              //name="phone"
-              placeholder="Yes or No "
-              name="aff"
-              onChange={handleChange}
-              value={data2.aff}
-              required
-            />
+            <select
+            style={{width:"500px"}} className= "input" name='Affiliated' onChange={handleChange} value = {data2.Affiliated} required>
+              <option value=''>Yes/No</option>
+              <option value = "Yes">Yes</option>
+              <option value = "No">No</option>
+            </select>
+          
             <br />
+            <label htmlFor="lname">Branch</label>
+            <br />
+            <select
+            style={{width:"500px"}} className= "input" name='Branch' onChange={handleChange} value = {data2.Branch} required>
+              <option value = ''>Choose the Branch</option>
+              <option value = "CSE">CSE</option>
+              <option value = "EEE">EEE</option>
+              <option value = "CE">CE</option>
+              <option value = "ME">ME</option>
+              <option value = "ECE">ECE</option>
+            </select>
+
+            <br/>
             <br />
             
             <button  onClick={handleSub}>Submit</button>

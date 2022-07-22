@@ -13,6 +13,7 @@ import App1 from './App1'
 import Search from './components/page/Search'
 //import { Router } from 'express'
 import Home2 from './components/page/Home2'
+import Table from './components/page/Table'
 
 
 
@@ -20,7 +21,6 @@ import Home2 from './components/page/Home2'
 
 ReactDOM.render(
 	<React.StrictMode>
-
 <App1/>
 
 		

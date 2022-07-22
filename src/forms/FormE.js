@@ -56,11 +56,11 @@ function AddD() {
         <div className="signupParentDiv">
         <h3 >Enter the details of published papers only..!!</h3>
           <form >
-            <label>year</label>
+            <label>Date</label>
             <br />
             <input style={{ width:"500px" }}
               className="input"
-              type="number"
+              type={date}
               //id="fname"
               //name="name"
               placeholder="Enter the year"

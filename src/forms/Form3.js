@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import './forms.css';
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+//import App from './Data';
+//import { pdf } from '@react-pdf/renderer';
 
 //fee reimbursement
 
@@ -31,7 +33,7 @@ function Form3() {
   
 }
 const navigate =useNavigate();
-  const handleSub= async (e)=>{
+  const handleSub = async (e)=>{
     e.preventDefault()
       console.log("fee : "+fee)
       //console.log("venue : "+venue)
@@ -41,17 +43,11 @@ const navigate =useNavigate();
     // console.log("amount : "+amount)
     console.log(data)
     try{
-      const url = "http://localhost:3001/invoice"
-      const {data: res} = await axios.post(url,{
-        "studentnames": data.studentnames,
-        "name": data.name,
-        "year": data.year,
-        "totalfee": data.totalfee,
-        "from": data.from,
-        "type": data.type
-      })
+      const url = "http://localhost:3001/invoice/reimbursment";
+      const {data: res} = await axios.post(url,data)
       alert(res.message)
 
+     window.open('/Data',"_blank")
     }catch(err){
       alert(err)
     }
@@ -144,7 +140,7 @@ const navigate =useNavigate();
 
         <br />
         <br />
-        <button  onClick={handleSub}>Submit</button>
+        <button type='submit'>Submit</button>
         <br /><br />
         <button onClick={q}>Cancel</button>
       

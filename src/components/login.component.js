@@ -32,9 +32,14 @@ const [data, setData] = useState({ email: "", password: "" })
 			const { data: res } = await axios.post(url, data);
       // fetch("http://localhost:8080/api/auth")
       // .then(response=>response.json())
-      console.log(data)
+     // console.log(res.token)
       alert(res.message)
-			//localStorage.setItem("token", res.data);
+      localStorage.setItem("role", res.data);
+			localStorage.setItem("token", res.token);
+      localStorage.setItem("name", res.name);
+			localStorage.setItem("branch", res.branch);
+      console.log(localStorage.role+"~~~~~~~~~~"+localStorage.token)
+      console.log("Branch = ",localStorage.branch,"Name = ",localStorage.name)
 			window.location = "/home";
 		} catch (error) {
 			if (
