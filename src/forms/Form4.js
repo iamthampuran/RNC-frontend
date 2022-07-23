@@ -31,7 +31,7 @@ function Form4() {
 	const handleSub = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:8080/api/addEvent";
+			const url = "http://localhost:3001/RNC/AddEvent";
 			const { data: res } = await axios.post(url, data4);
       //console.log("______"+res.data.eventN);
       console.log("______"+res.data.eventN);

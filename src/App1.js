@@ -17,7 +17,11 @@ import Home3 from './components/page/Home3'
 import Home4 from './components/page/Home4'
 import Search from './components/page/Search'
 import Data from './forms/Data'
-
+import AssignMember from './components/page/AssignMember'
+import ShowFee from './components/page/ShowFees'
+import ShowEvents from './components/page/ShowEvents'
+import ApprovePublication from './components/page/ApprovePublication'
+import ViewProfile from './components/page/ViewProfile'
 
 
 
@@ -43,13 +47,18 @@ function App1() {
      {user && role==="F" && <Route path="/home" exact element={<Home4/>} />}
      {user && role ==="M"&& <Route path = "/home" exact element={<Home3/>}/>}
      <Route path="/home" exact element={<Login />} />
-    <Route path="/form-3" element={<Form3 />} />
-    <Route path="/form-4" element={<Form4/> } />
+    {user && role==="A"&& <Route path="/form-3" element={<Form3 />} />}
+    {user && role==="A"&& <Route path="/form-4" element={<Form4/> } />}
      <Route path="/sign-in" element={<Login />} />
     <Route path="/sign-up" element={<SignUp />} />
-   <Route path="/form-1" element={<Form1 />} />
-   <Route path="/add-details" element={<AddD />} />
-   <Route path = "/Data" element = {<Data />} />
+    {user && role==="A"&& <Route path="/form-1" element={<Form1 />} />}
+    {user && role==="F" && <Route path="/add-details" element={<AddD />} />}
+    {user && role==="A"&& <Route path = "/Data" element = {<Data />} />}
+    {user && role==="A"&& <Route path = "/AssignMember" element = {<AssignMember />} />}
+    {user && role==="A"&& <Route path = "/ShowFee" element = {<ShowFee />} />}
+    {user && role==="A"&& <Route path = "/ShowEvents" element = {<ShowEvents />} />}
+    {user && role==="M"&& <Route path = "/ApprovePublication" element = {<ApprovePublication />} />}
+    {user && role==="F" && <Route path = "/ViewProfile" element = {<ViewProfile />} />}
       </Routes>
 
        </Router>

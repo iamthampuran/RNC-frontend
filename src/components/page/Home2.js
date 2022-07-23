@@ -11,6 +11,8 @@ export default function Home2() {
   const slogout=()=>{
     localStorage.removeItem("token")
     localStorage.removeItem("role")
+    localStorage.removeItem("name")
+    localStorage.removeItem("branch")
     window.location="/sign-in"
   }
   
@@ -22,7 +24,7 @@ return (
 
     } */}
     <div className='logout'>
-      <h4>Welcome Admin</h4> 
+      <h4>Welcome {localStorage.name}</h4> 
     <button  onClick={slogout}>LOG OUT</button>
     </div>
   <Row>
@@ -62,7 +64,7 @@ return (
           Reimburesement of fees based on Organizational structure and criterias.
         </MDBCardText>
         <MDBBtn href='/form-3'>add new  </MDBBtn><br/><br/>
-        <MDBBtn href='/form-3'>Show list</MDBBtn>
+        <MDBBtn href='/ShowFee'>Show list</MDBBtn>
       </MDBCardBody>
     </MDBCard>
   </Col>

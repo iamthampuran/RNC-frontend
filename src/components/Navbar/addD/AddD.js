@@ -35,11 +35,12 @@ function AddD() {
 	const handleSub = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:3001/Public/add";
+			const url = "http://localhost:3001/RNC/add";
 			const { data: res } = await axios.post(url, data2);
-			navigate("/");
+			navigate("/home");
 			console.log(res.message);
             alert(res.message)
+  
 		} catch (error) {
 			if (
 				error.response &&

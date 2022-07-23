@@ -7,15 +7,15 @@ import Table from './Table'
 import "./style.css"
 
 
-function Search() {
+function AssignMember() {
 const [listOfUsers, setListOfUsers] = useState([]);
 const [data4, setData4] = useState([])
 const [name1,setName1]=useState("title")
 const [error, setError] = useState("");
 const cols = [
-  { title: 'Title', field: 'Title' },
-  { title: 'Author', field: 'Faculties' },
-  { title: 'Year', field: 'Year', type: 'Number' },
+  { title: 'Name', field: 'name' },
+  { title: 'Branch', field: 'branch' },
+  { title: 'Role', field: 'type', type: 'Text' },
  // { title: 'Journal Name', field: 'nameJ' }
 ]
 
@@ -35,7 +35,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.post("http://localhost:3001/RNC/retrieve",{}).then((response) => {
+        axios.get("http://localhost:3001/RNC/getFaculties").then((response) => {
             setListOfUsers(response.data.data);
             console.log(listOfUsers)
             //alert(response.data.message)
@@ -52,7 +52,7 @@ const print_all = () => {
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://localhost:3001/RNC/retrieve";
+        const url = "http://localhost:3001/RNC/getFaculties";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
@@ -81,7 +81,7 @@ const print_all = () => {
 <h1>&nbsp;&nbsp;&nbsp;searching </h1>
 <form>
 <label>
-    &nbsp;&nbsp; view all details of publications
+    &nbsp;&nbsp; view all details of Faculties
     </label>&nbsp;&nbsp;&nbsp;
     <button onClick={handleS}>View all</button>
 {/* 
@@ -136,11 +136,12 @@ const print_all = () => {
             </div>
           );
         })}  */}
-        <div class="container"><Table col={cols} data={listOfUsers} /></div>
+        <div class="container"><Table col={cols} data={listOfUsers} buttonname ={"Assign"} 
+        event = {"http://localhost:3001/RNC/assignmember"} action = {"Member"}/></div>
         
 <br/></div>
     )
     }
 
     
-    export default Search
+    export default AssignMember

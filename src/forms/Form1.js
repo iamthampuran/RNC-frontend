@@ -14,6 +14,7 @@ function Form1() {
 		agency: "",
 		name: "",
     GoP: "",
+    dept:"",
 		amount: ""
 	});
   
@@ -27,9 +28,9 @@ function Form1() {
 	const handleSub = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:8080/api/addFP";
+			const url = "http://localhost:3001/RNC/addFP";
 			const { data: res } = await axios.post(url, data3);
-			navigate("/");
+			navigate("/home");
 			console.log(res.message);
             alert(res.message)
 		} catch (error) {
@@ -54,27 +55,11 @@ function Form1() {
   return (
     
     <div className="signupParentDiv">
-    <h3 >enter the details of approved projects only..!</h3>
+    <h5 >enter the details of approved projects only..!</h5>
       <form >
-        <label>year</label>
-        <br />
-        <input style={{ width:"500px" }}
-          className="input"
-          type="number"
-          //id="fname"
-          //name="name"
-          placeholder="Enter the year"
-         // value={year}
-          name="year"
-          onChange={handleChange}
-          value={data3.year}
-          required
-
-            //onChange={(e)=>setYear(e.target.value)}
-          
-        />
-        <br />
-        <label htmlFor="fname">Project Title</label>
+        
+      <br />
+        <label htmlFor="fname">Project Description</label>
         <br />
         <input
          style={{ width:"500px" }}
@@ -82,7 +67,7 @@ function Form1() {
           type="text"
           id="fname"
           //name="email"
-          placeholder="Enter the project title"
+          placeholder="Enter the project Description"
           name="title"
           onChange={handleChange}
           value={data3.title}
@@ -91,8 +76,27 @@ function Form1() {
            // onChange={(e)=>setTitle(e.target.value)}
           
         />
+       
         <br />
-        <label htmlFor="lname">Name of PI / Co-PI</label>
+        <label>Date of application</label>
+        <br />
+        <input style={{ width:"500px" }}
+          className="input"
+          type="text"
+          //id="fname"
+          name="year"
+          
+         //value={year}
+         placeholder="MM/DD/YYY"
+          onChange={handleChange}
+          value={data3.year}
+          required
+
+            //onChange={(e)=>setYear(e.target.value)}
+          
+        />
+        <br />
+        <label htmlFor="lname">Name & Designation PI / Co-PI</label>
         <br />
         <input
          style={{ width:"500px" }}
@@ -100,7 +104,7 @@ function Form1() {
           type="text"
           //id="lname"
           //name="phone"
-          placeholder="enter name of PI / Co-PI"
+          placeholder="enter name and designation PI / Co-PI"
           name="name"
           onChange={handleChange}
           value={data3.name}
@@ -109,7 +113,7 @@ function Form1() {
           
         />
          <br />
-        <label htmlFor="lname">Agency</label>
+        <label htmlFor="lname">Funding Agency</label>
         <br />
         <input
           style={{ width:"500px" }}
@@ -139,7 +143,22 @@ function Form1() {
               required
         />
          <br />
-        <label htmlFor="lname">Amount</label>
+        <label htmlFor="lname">Department</label>
+        <br />
+        <input
+          style={{ width:"500px" }}
+          className="input"
+          type="text"
+          //id="lname"
+          //name="phone"
+          placeholder="Department"
+          name="dept"
+              onChange={handleChange}
+              value={data3.dept}
+              required
+        />
+         <br />
+        <label htmlFor="lname">Project Amount</label>
         <br />
         <input
           style={{ width:"500px" }}
@@ -166,5 +185,3 @@ function Form1() {
 }
 
 export default Form1
-
-

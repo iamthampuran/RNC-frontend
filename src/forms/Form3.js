@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './forms.css';
 import { Navigate, useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 //import App from './Data';
 //import { pdf } from '@react-pdf/renderer';
@@ -43,7 +44,7 @@ const navigate =useNavigate();
     // console.log("amount : "+amount)
     console.log(data)
     try{
-      const url = "http://localhost:3001/invoice/reimbursment";
+      const url = "http://localhost:3001/RNC/reimbursment";
       const {data: res} = await axios.post(url,data)
       alert(res.message)
 

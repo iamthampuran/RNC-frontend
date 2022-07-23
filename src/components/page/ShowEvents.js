@@ -7,17 +7,20 @@ import Table from './Table'
 import "./style.css"
 
 
-function Search() {
+function ShowEvents() {
 const [listOfUsers, setListOfUsers] = useState([]);
 const [data4, setData4] = useState([])
 const [name1,setName1]=useState("title")
 const [error, setError] = useState("");
 const cols = [
-  { title: 'Title', field: 'Title' },
-  { title: 'Author', field: 'Faculties' },
-  { title: 'Year', field: 'Year', type: 'Number' },
+    {title: 'Venue', field: 'venue'},
+  { title: 'Event Name', field: 'eventN' },
+  { title: 'Date', field: 'date' },
+  { title: 'Time', field: 'time'},
+  { title: 'Organised by', field: 'org'}
  // { title: 'Journal Name', field: 'nameJ' }
 ]
+console.log(1)
 
 // const handleSub=(e)=>{
 //     e.preventDefault()
@@ -35,8 +38,9 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.post("http://localhost:3001/RNC/retrieve",{}).then((response) => {
+        axios.get("http://localhost:3001/RNC/getEvents").then((response) => {
             setListOfUsers(response.data.data);
+
             console.log(listOfUsers)
             //alert(response.data.message)
            // print_all()                     //all publications retreival
@@ -52,7 +56,7 @@ const print_all = () => {
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://localhost:3001/RNC/retrieve";
+        const url = "http://localhost:3001/RNC/getEvents";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
@@ -81,7 +85,7 @@ const print_all = () => {
 <h1>&nbsp;&nbsp;&nbsp;searching </h1>
 <form>
 <label>
-    &nbsp;&nbsp; view all details of publications
+    &nbsp;&nbsp; view all details of Fee Reimbursement
     </label>&nbsp;&nbsp;&nbsp;
     <button onClick={handleS}>View all</button>
 {/* 
@@ -136,11 +140,11 @@ const print_all = () => {
             </div>
           );
         })}  */}
-        <div class="container"><Table col={cols} data={listOfUsers} /></div>
+        <div class="container"><Table col={cols} data={listOfUsers} action ={"Fees"} /></div>
         
 <br/></div>
     )
     }
 
     
-    export default Search
+    export default ShowEvents

@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Col from 'react-bootstrap/col';
 import Row from 'react-bootstrap/Row';
 import imh1 from "../../images/logomits.png"
+import './Home2.css';
+
 
 
 export default function Home2() {
@@ -22,7 +24,7 @@ return (
      console.log("oooo"+localStorage.token)
 
     } */}
-    <div><h4>Welcome {localStorage.name}</h4> <button onClick={slogout}>LOG OUT</button></div>
+    <div className='logout'><h4>Welcome {localStorage.name}</h4> <button onClick={slogout}>LOG OUT</button></div>
   <Row>
   <Col>
     <MDBCard style={{ maxWidth: '22rem' }}>
@@ -37,7 +39,7 @@ return (
         <MDBCardText>
         
         </MDBCardText>
-        <MDBBtn href='/form-4'>view</MDBBtn>
+        <MDBBtn href='/ViewProfile'>view</MDBBtn>
         
       </MDBCardBody>
     </MDBCard>
@@ -55,7 +57,7 @@ return (
         <MDBCardText>
         Verify Publication details
         </MDBCardText>
-        <MDBBtn href='/form-3'>verify  </MDBBtn><br/><br/>
+        <MDBBtn href='/ApprovePublication'>verify  </MDBBtn><br/><br/>
         {/* <MDBBtn href='/form-3'>Show list</MDBBtn> */}
       </MDBCardBody>
     </MDBCard>

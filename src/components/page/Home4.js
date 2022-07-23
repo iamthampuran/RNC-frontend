@@ -61,7 +61,7 @@ return (
         <MDBCardText>
         
         </MDBCardText>
-        <MDBBtn href='/form-4'>view</MDBBtn>
+        <MDBBtn href='/ViewProfile'>view</MDBBtn>
         
       </MDBCardBody>
     </MDBCard>
