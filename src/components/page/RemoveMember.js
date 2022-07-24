@@ -7,8 +7,8 @@ import Table from './Table'
 import "./style.css"
 
 
-function AssignMember() {
-  const navigate = useNavigate()
+function RemoveMember() {
+    const navigate = useNavigate()
 const [listOfUsers, setListOfUsers] = useState([]);
 const [data4, setData4] = useState([])
 const [name1,setName1]=useState("title")
@@ -36,7 +36,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://localhost:3001/RNC/getFaculties").then((response) => {
+        axios.get("http://localhost:3001/RNC/getMember").then((response) => {
             setListOfUsers(response.data.data);
             console.log(listOfUsers)
             //alert(response.data.message)
@@ -51,13 +51,12 @@ const print_all = () => {
   }
 }
 const q=()=>{
-  navigate('/home',{replace:true}) 
-  }
-
+    navigate('/home',{replace:true}) 
+    }
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://localhost:3001/RNC/getFaculties";
+        const url = "http://localhost:3001/RNC/getMember";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
@@ -142,12 +141,12 @@ const q=()=>{
             </div>
           );
         })}  */}
-        <div class="container"><Table col={cols} data={listOfUsers} buttonname ={"Assign"} 
-        event = {"http://localhost:3001/RNC/assignmember"} action = {"Member"}/></div>
+        <div class="container"><Table col={cols} data={listOfUsers} buttonname ={"Remove"} 
+        event = {"http://localhost:3001/RNC/remove"} action = {"Member"}/></div>
         
 <br/></div>
     )
     }
 
     
-    export default AssignMember
+    export default RemoveMember

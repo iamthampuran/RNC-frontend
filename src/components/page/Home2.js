@@ -131,6 +131,29 @@ return (
       </MDBCardBody>
     </MDBCard>
   </Col> 
+
+  <Col>
+    <MDBCard style={{ maxWidth: '22rem' }}>
+      <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
+        <MDBCardImage src='https://cdn.pixabay.com/photo/2021/09/20/22/15/add-6641966__340.png' fluid alt='...' />
+        <a>
+          <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}>
+
+            
+          </div>
+        </a>
+      </MDBRipple>
+      <MDBCardBody>
+        <MDBCardTitle>Member</MDBCardTitle>
+        <MDBCardText>
+         Assign a member from faculty or remove the title as member
+        </MDBCardText>
+        <MDBBtn href='/AssignMember'>Assign member </MDBBtn>
+         <MDBBtn href='/RemoveMember'>Remove member </MDBBtn>
+      </MDBCardBody>
+    </MDBCard>
+  </Col>
+
   </Row>
   
   </div>

@@ -23,6 +23,7 @@ import ShowEvents from './components/page/ShowEvents'
 import ApprovePublication from './components/page/ApprovePublication'
 import ViewProfile from './components/page/ViewProfile'
 import ListFP from './components/page/ListFP'
+import RemoveMember from './components/page/RemoveMember'
 
 
 
@@ -56,6 +57,7 @@ function App1() {
     {user && role==="F" && <Route path="/add-details" element={<AddD />} />}
     {user && role==="A"&& <Route path = "/Data" element = {<Data />} />}
     {user && role==="A"&& <Route path = "/AssignMember" element = {<AssignMember />} />}
+    {user && role==="A"&& <Route path = "/RemoveMember" element = {<RemoveMember />} />}
     {user && role==="A"&& <Route path = "/ShowFee" element = {<ShowFee />} />}
     {user && role==="A"&& <Route path = "/ShowEvents" element = {<ShowEvents />} />}
     {user && role==="M"&& <Route path = "/ApprovePublication" element = {<ApprovePublication />} />}
