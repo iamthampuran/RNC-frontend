@@ -49,6 +49,7 @@ const navigate =useNavigate();
       alert(res.message)
 
      window.open('/Data',"_blank")
+     navigate('/home')
     }catch(err){
       alert(err)
     }

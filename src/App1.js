@@ -22,6 +22,7 @@ import ShowFee from './components/page/ShowFees'
 import ShowEvents from './components/page/ShowEvents'
 import ApprovePublication from './components/page/ApprovePublication'
 import ViewProfile from './components/page/ViewProfile'
+import ListFP from './components/page/ListFP'
 
 
 
@@ -59,6 +60,7 @@ function App1() {
     {user && role==="A"&& <Route path = "/ShowEvents" element = {<ShowEvents />} />}
     {user && role==="M"&& <Route path = "/ApprovePublication" element = {<ApprovePublication />} />}
     {user && role==="F" && <Route path = "/ViewProfile" element = {<ViewProfile />} />}
+    {user && role==='A' && <Route path = "/ListFP" element = {<ListFP />} />}
       </Routes>
 
        </Router>

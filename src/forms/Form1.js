@@ -78,16 +78,16 @@ function Form1() {
         />
        
         <br />
-        <label>Date of application</label>
+        <label>Year</label>
         <br />
         <input style={{ width:"500px" }}
           className="input"
-          type="text"
+          type="Number"
           //id="fname"
           name="year"
           
          //value={year}
-         placeholder="MM/DD/YYY"
+         placeholder="YYYY"
           onChange={handleChange}
           value={data3.year}
           required

@@ -39,7 +39,7 @@ return (
         <MDBCardText>
         
         </MDBCardText>
-        <MDBBtn href='/ViewProfile'>view</MDBBtn>
+        <MDBBtn href='/ViewProfilex'>view</MDBBtn>
         
       </MDBCardBody>
     </MDBCard>

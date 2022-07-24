@@ -5,12 +5,14 @@ import axios from "axios";
 import MaterialTable from 'material-table';
 import "./style.css"
 import { Title } from '@material-ui/icons';
+import {useNavigate} from "react-router-dom"
 
 //https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=publication&btnG=
 
 
 function ApprovePublication() {
     //const branch="qwwee"
+    const navigate = useNavigate()
     const branch =localStorage.branch;
     const [listOfUsers, setListOfUsers] = useState([]);
     const columns1=[
@@ -21,6 +23,9 @@ function ApprovePublication() {
         { title: 'Branch', field: 'Branch'},
         { title: 'Details', field: 'Details'}
       ]
+      const q=()=>{
+        navigate('/home',{replace:true}) 
+        }
    
  const handleS= async (e) => {
             e.preventDefault()
@@ -44,7 +49,8 @@ function ApprovePublication() {
 <label>
     &nbsp;&nbsp; view all non-verified deatils of publication
     </label>&nbsp;&nbsp;&nbsp;
-    <button onClick={handleS}>View all</button>
+    <button onClick={handleS}>View all</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onClick={q}>Home</button>
 
 </form>
 <br/>
@@ -91,7 +97,7 @@ function ApprovePublication() {
             //const { data: res } = await axios.post(url, {title : title})  ### must be post 
             axios.post(url, {"Title": rowData.Title,"Confirm": "No"}).then((response) => {
                 console.log("rejecting :"+rowData.title) 
-                alert(response.data.message)    
+                //alert(response.data.message)    
                // console.log(listOfUsers)                //required ones
               })
            console.log(rowData._id)

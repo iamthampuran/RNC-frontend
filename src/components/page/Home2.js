@@ -83,7 +83,7 @@ return (
         </MDBCardText>
         <MDBBtn href='/form-4'>add new</MDBBtn>
         <br/><br/>
-        <MDBBtn href='/form-3'>Show list</MDBBtn>
+        <MDBBtn href='/ShowEvents'>Show list</MDBBtn>
       </MDBCardBody>
     </MDBCard>
   </Col>
@@ -103,7 +103,7 @@ return (
         </MDBCardText>
         <MDBBtn href='form-1'>add new</MDBBtn>
         <br/><br/>
-        <MDBBtn href='/listP'>Show list</MDBBtn>
+        <MDBBtn href='/ListFP'>Show list</MDBBtn>
       </MDBCardBody>
     </MDBCard>
   </Col>

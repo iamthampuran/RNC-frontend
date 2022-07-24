@@ -8,6 +8,7 @@ import "./style.css"
 
 
 function ShowEvents() {
+  const navigate = useNavigate()
 const [listOfUsers, setListOfUsers] = useState([]);
 const [data4, setData4] = useState([])
 const [name1,setName1]=useState("title")
@@ -46,6 +47,10 @@ const handleS = async (e) => {
            // print_all()                     //all publications retreival
            
           });}
+          const q=()=>{
+            navigate('/home',{replace:true}) 
+            }
+
 const print_all = () => {
   
   for(let i=0;i<5;i++)
@@ -87,7 +92,8 @@ const print_all = () => {
 <label>
     &nbsp;&nbsp; view all details of Fee Reimbursement
     </label>&nbsp;&nbsp;&nbsp;
-    <button onClick={handleS}>View all</button>
+    <button onClick={handleS}>View all</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onClick={q}>Home</button>
 {/* 
             <br/>
 <br/>

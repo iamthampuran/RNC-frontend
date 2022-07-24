@@ -16,10 +16,14 @@ function Table(props) {
   <MaterialTable 
    options={{
       exportButton: {
+          paging:true,
           csv: true,
           pdf:true,
+          
       },
-      
+      rowStyle:{
+        backgroundColor: '#EEE'
+      }
     }}
     localization={{
       toolbar: {
@@ -55,12 +59,23 @@ function Table(props) {
     return (
       <div>
   <MaterialTable 
+  title={props.action}
    options={{
       exportButton: {
           csv: true,
           pdf:true,
       },
-      
+      rowStyle:{
+        backgroundColor: '#05f5bd',
+      },
+      headerStyle: {
+        backgroundColor: '#01579b',
+        color: '#FFF'
+      },
+      paging:true,
+      pageSize:100,       // make initial page size
+      emptyRowsWhenPaging: false,   // To avoid of having empty rows
+      pageSizeOptions:[5,10,20,50,100,200,500],
     }}
     localization={{
       toolbar: {

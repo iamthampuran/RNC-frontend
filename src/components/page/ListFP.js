@@ -7,18 +7,22 @@ import Table from './Table'
 import "./style.css"
 
 
-function Search() {
-  const navigate = useNavigate()
+function ListFP() {
+    const navigate = useNavigate();
 const [listOfUsers, setListOfUsers] = useState([]);
 const [data4, setData4] = useState([])
 const [name1,setName1]=useState("title")
 const [error, setError] = useState("");
 const cols = [
-  { title: 'Title', field: 'Title' },
-  { title: 'Author', field: 'Faculties' },
-  { title: 'Year', field: 'Year', type: 'Number' },
- // { title: 'Journal Name', field: 'nameJ' }
+    {title: 'Title', field: 'title'},
+  { title: 'Agency Name', field: 'agency' },
+  { title: 'Name', field: 'name' },
+  { title: 'GOVT/PVT', field: 'GoP'},
+  { title: 'Amount', field: 'amount'},
+ { title: 'Branch', field: 'dept' },
+ {title: 'Year', field: 'year'}
 ]
+console.log(1)
 
 // const handleSub=(e)=>{
 //     e.preventDefault()
@@ -36,8 +40,9 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.post("http://localhost:3001/RNC/retrieve",{}).then((response) => {
+        axios.get("http://localhost:3001/RNC/getFP").then((response) => {
             setListOfUsers(response.data.data);
+
             console.log(listOfUsers)
             //alert(response.data.message)
            // print_all()                     //all publications retreival
@@ -51,14 +56,14 @@ const print_all = () => {
   }
 }
 const q=()=>{
-  navigate('/home',{replace:true}) 
-  }
+    navigate('/home',{replace:true}) 
+    }
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://localhost:3001/RNC/retrieve";
+        const url = "http://localhost:3001/RNC/getFP";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
-        axios.post(url, data4).then((response) => {
+        axios.get(url, data4).then((response) => {
             setListOfUsers(response.data.data);
             console.log(listOfUsers)                //required ones
           })
@@ -85,7 +90,7 @@ const q=()=>{
 <h1>&nbsp;&nbsp;&nbsp;searching </h1>
 <form>
 <label>
-    &nbsp;&nbsp; view all details of publications
+    &nbsp;&nbsp; view all details of Funded Projects
     </label>&nbsp;&nbsp;&nbsp;
     <button onClick={handleS}>View all</button>&nbsp;&nbsp;&nbsp;&nbsp;
     <button onClick={q}>Home</button>
@@ -141,11 +146,11 @@ const q=()=>{
             </div>
           );
         })}  */}
-        <div class="container"><Table col={cols} data={listOfUsers} /></div>
+        <div class="container"><Table col={cols} data={listOfUsers} action ={"Funded Projects"} /></div>
         
 <br/></div>
     )
     }
 
     
-    export default Search
+    export default ListFP
