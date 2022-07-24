@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import './Data.css';
 import jsPDF from 'jspdf';
-import images from 'C:/Users/ASUS/RNC-NEW/src/forms/images.jpg'
+import images from './images.jpg'
 import Axios from 'axios'
 //import axios from 'axios';
 
@@ -19,6 +19,8 @@ const Data = () => {
     //doc.text(30,30,S)
             doc.addImage(images,'jpg',40,50,250,100)
             doc.setFontSize(15)
+            console.log(res.data)
+            console.log(res.data.count)
             doc.text(600,50,"MITS|RNC|"+res.data.year+"|"+res.data.count)
             doc.setFontSize(15).setFont(undefined,'normal')
             doc.text(40,300,res.data.documentation)
