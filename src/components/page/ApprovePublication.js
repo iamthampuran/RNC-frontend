@@ -7,7 +7,6 @@ import "./style.css"
 import { Title } from '@material-ui/icons';
 import {useNavigate} from "react-router-dom"
 
-//https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=publication&btnG=
 
 
 function ApprovePublication() {
@@ -26,6 +25,33 @@ function ApprovePublication() {
       const q=()=>{
         navigate('/home',{replace:true}) 
         }
+
+        const [choose,setChoose]=useState("")
+        const [choose2,setChoose2]=useState("")//initiating choose2 as null
+        const [choose3,setChoose3]=useState("")
+    
+        const handle= async (e) => {
+               console.log("__"+choose)
+               const url ='https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q='  +choose+ '&btnG='
+               window.open(url); //new tab
+             // window.location.href =url ; //same window reload cheyyan
+        }
+        const handle2= async (e) => {
+            console.log("__"+choose)
+            
+            const url ='https://www.google.com/search?q='  +choose2
+             window.open(url); //new tab
+             // window.location.href =url ; //same window reload cheyyan
+     }
+    
+     const handle3= async (e) => {
+        console.log("__"+choose)
+        
+        const url1 ='https://www.google.com/search?q='  +choose3
+        const url='https://www.scopus.com/results/authorNamesList.uri?sort=count-f&src=al&sid=c2623b7d81c5b6c13b56b38f232518c7&sot=al&sdt=al&sl=20&s=AUTHLASTNAME%28'+choose3+'%29&st1='+choose3+'&orcidId=&selectionPageSearch=anl&reselectAuthor=false&activeFlag=true&showDocument=false&resultsPerPage=20&offset=1&jtp=false&currentPage=1&previousSelectionCount=0&tooManySelections=false&previousResultCount=0&authSubject=LFSC&authSubject=HLSC&authSubject=PHSC&authSubject=SOSC&exactAuthorSearch=false&showFullList=false&authorPreferredName=&origin=searchauthorfreelookup&affiliationId=&txGid=40694e9b93d6bdf7d18a4a0e07cf9b9f'
+        window.open(url); //new tab
+         // window.location.href =url ; //same window reload cheyyan
+    }
    
  const handleS= async (e) => {
             e.preventDefault()
@@ -55,17 +81,19 @@ function ApprovePublication() {
 </form>
 <br/>
 
-<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.goto scholar Link  <a href="https://scholar.google.com/schhp?hl=en&as_sdt=0,5" target="_blank">click here</a></h5>
-
- <br/>
- <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. Search on google Link  <a href='https://www.google.com/' target="_blank">click here</a></h5>
- 
- <br/>
- <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3. goto Scopus Link  <a href="https://www.scopus.com/freelookup/form/author.uri?zone=TopNavBar&origin=NO%20ORIGIN%20DEFINED" target="_blank">click here</a></h5>
- 
- <br/>
-{/* <a href={url} target="_blank">Lcddink</a> 
-<a href="http://www.google.com/search?q=" onclick="location.href=this.href+url;return false;" target="_blank">Link</a>   */}
+<h6>
+&nbsp;&nbsp;enter book title to search on google Scholar : &nbsp;
+<input onChange={event => setChoose(event.target.value)} />&nbsp;&nbsp;&nbsp;
+<button onClick={handle}>search on Scholar</button>
+<br/><br/>
+&nbsp;&nbsp;enter name to search on google : &nbsp;
+<input onChange={event => setChoose2(event.target.value)} />&nbsp;&nbsp;&nbsp;
+<button onClick={handle2}>google search</button>
+<br/><br/>
+&nbsp;&nbsp;enter name of author to search on scopus :&nbsp;
+<input onChange={event => setChoose3(event.target.value)} />&nbsp;&nbsp;&nbsp;
+<button onClick={handle3}>search on scopus</button><br/><br/>
+</h6><br/>
 <div class="container">
 <MaterialTable
   
@@ -104,18 +132,7 @@ function ApprovePublication() {
             }
         }
 
-        // {
        
-        //   icon:()=><button><h6>Scholar</h6></button>,
-        //   tooltip: 'search on google Scholar about this publication',
-        //   onClick:{}
-        //   },
-
-        //   {
-       
-        //     icon:()=><button><h6>google </h6></button>,
-        //     tooltip: 'search on google about this publication',
-        //   }
   ]}
     data={listOfUsers}
       columns={columns1}
