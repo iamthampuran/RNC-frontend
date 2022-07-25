@@ -39,7 +39,7 @@ const Data = () => {
     }
     return (
         <div className='newdata'>
-            <h1>Hello Admin</h1>
+            <h1>Bill in PDF  format</h1>
             <button type='submit' onClick={pdfGenerator}>Download</button>
         </div>
     );
