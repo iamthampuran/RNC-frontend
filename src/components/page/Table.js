@@ -22,9 +22,6 @@ function Table(props) {
           pdf:true,
           
       },   
-      rowStyle:{
-        backgroundColor: '#05f5bd',
-      },
       headerStyle: {
         backgroundColor: '#01579b',
         color: '#FFF'
@@ -73,9 +70,6 @@ function Table(props) {
       exportButton: {
           csv: true,
           pdf:true,
-      },
-      rowStyle:{
-        backgroundColor: '#05f5bd',
       },
       headerStyle: {
         backgroundColor: '#01579b',

@@ -23,10 +23,11 @@ return (
      console.log("oooo"+localStorage.token)
 
     } */}
-    <div className='logout'><h4>Welcome {localStorage.name}, of {localStorage.branch}</h4> <button onClick={slogout}>LOG OUT</button></div>
+    <div className='logout'><h4>Welcome {localStorage.name}, of {localStorage.branch}</h4> <button style={{background:"#3399aa"}} onClick={slogout}>LOG OUT</button></div>
   <Row>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
     <Col>
-    <MDBCard style={{ maxWidth: '22rem' }}>
+    <MDBCard style={{ maxWidth: '33rem' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
         <MDBCardImage src='https://cdn.vox-cdn.com/thumbor/4bIDn1aNxrUWu7sUbCcPGojI6gM=/0x10:1000x760/1200x800/filters:focal(0x10:1000x760)/cdn.vox-cdn.com/uploads/chorus_image/image/48996123/shutterstock_212822350.0.0.jpg' fluid alt='...' />
         <a>
@@ -51,7 +52,7 @@ return (
     <Col>
     <MDBCard style={{ maxWidth: '22rem' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://thumbs.dreamstime.com/b/event-planning-concept-events-word-notebook-clock-notepad-computer-desk-98974101.jpg' fluid alt='...' />
+        <MDBCardImage src='https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg' fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>

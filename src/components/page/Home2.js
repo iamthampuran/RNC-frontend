@@ -25,31 +25,10 @@ return (
     } */}
     <div className='logout'>
       <h4>Welcome {localStorage.name}</h4> 
-    <button  onClick={slogout}>LOG OUT</button>
+    <button style={{background:"#3399aa"}} onClick={slogout}>LOG OUT</button>
     </div>
   <Row>
-    {/* <Col>
-    <MDBCard style={{ maxWidth: '22rem' }}>
-      <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://cdn.vox-cdn.com/thumbor/4bIDn1aNxrUWu7sUbCcPGojI6gM=/0x10:1000x760/1200x800/filters:focal(0x10:1000x760)/cdn.vox-cdn.com/uploads/chorus_image/image/48996123/shutterstock_212822350.0.0.jpg' fluid alt='...' />
-        <a>
-          <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}>
-
-            
-          </div>
-        </a>
-      </MDBRipple>
-      <MDBCardBody>
-        <MDBCardTitle>Publication Details</MDBCardTitle>
-        <MDBCardText>
-          Add details of new Publications  through a form followed by a user verification.
-        </MDBCardText>
-        <MDBBtn href='/add-details'>add new</MDBBtn>
-        <br/><br/>
-        <MDBBtn href='/search'>Show list</MDBBtn>
-      </MDBCardBody>
-    </MDBCard>
-  </Col> */}
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     <Col>
     <MDBCard style={{ maxWidth: '22rem' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
@@ -110,10 +89,11 @@ return (
   </Row>
   <div><br/></div>
   <Row>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
      <Col>
     <MDBCard style={{ maxWidth: '22rem' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://cdn.vox-cdn.com/thumbor/4bIDn1aNxrUWu7sUbCcPGojI6gM=/0x10:1000x760/1200x800/filters:focal(0x10:1000x760)/cdn.vox-cdn.com/uploads/chorus_image/image/48996123/shutterstock_212822350.0.0.jpg' fluid alt='...' />
+        <MDBCardImage src='https://www.agastiyarzones.com/image/Journal_Publication.png' fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}>
 
@@ -124,7 +104,7 @@ return (
       <MDBCardBody>
         <MDBCardTitle>Publication Details</MDBCardTitle>
         <MDBCardText>
-          details of  Publications .
+      retrieve, filter, sort and export as excel and pdf formats.
         </MDBCardText>
         
         <MDBBtn href='/search'>Show list</MDBBtn>
@@ -135,25 +115,43 @@ return (
   <Col>
     <MDBCard style={{ maxWidth: '22rem' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://cdn.pixabay.com/photo/2021/09/20/22/15/add-6641966__340.png' fluid alt='...' />
+        <MDBCardImage src='https://www.ohiodcca.org/wp-content/uploads/2015/12/Members-Only-License-Plate-Blue.jpg' width="70%" fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}>
 
-            
+          
           </div>
         </a>
       </MDBRipple>
       <MDBCardBody>
         <MDBCardTitle>Member</MDBCardTitle>
         <MDBCardText>
-         Assign a member from faculty or remove the title as member
+         Assign or remove member
         </MDBCardText>
-        <MDBBtn href='/AssignMember'>Assign member </MDBBtn>
-         <MDBBtn href='/RemoveMember'>Remove member </MDBBtn>
+        <MDBBtn href='/AssignMember'>Assign  </MDBBtn>&nbsp;&nbsp;&nbsp;&nbsp;
+         <MDBBtn href='/RemoveMember'>Remove </MDBBtn>
       </MDBCardBody>
     </MDBCard>
   </Col>
-
+  <Col>
+    <MDBCard style={{ maxWidth: '24rem' }}>
+      <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
+        <MDBCardImage src='https://images.static-collegedunia.com/public/college_data/images/campusimage/15873159111.jpg' fluid alt='...' />
+        <a>
+          <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
+        </a>
+      </MDBRipple>
+      <MDBCardBody>
+        <MDBCardTitle>official website</MDBCardTitle>
+        <MDBCardText>
+         Visit the official website of R and C Cell MITS.
+         for further details 
+        </MDBCardText>
+        <MDBBtn href='https://mgmits.ac.in/research/research-and-consultancy-cell/'>click here</MDBBtn>
+       
+      </MDBCardBody>
+    </MDBCard>
+  </Col>
   </Row>
   
   </div>
