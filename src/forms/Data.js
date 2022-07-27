@@ -26,7 +26,7 @@ const Data = () => {
             doc.text(40,300,res.data.documentation)
             doc.setFontSize(15)
             doc.text(500,350,res.data.name)
-            doc.save("generated.pdf");
+            doc.save("Fee Reimbursed.pdf");
             })
             
             

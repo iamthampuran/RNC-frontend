@@ -100,7 +100,7 @@ function ApprovePublication() {
   actions={[
     {
        
-      icon:()=><button><h6>Aprove</h6></button>,
+      icon:()=><button><h6>Approve</h6></button>,
       tooltip: 'Approve this publication',
       onClick: (event, rowData) => {
         event.preventDefault()
@@ -116,7 +116,7 @@ function ApprovePublication() {
       }
     }, {
        
-        icon:()=><button><h6>Reject</h6></button>,
+        icon:()=><button><h6>Decline</h6></button>,
         tooltip: 'Reject this publication',
         onClick: (event, rowData) => {
             event.preventDefault()
