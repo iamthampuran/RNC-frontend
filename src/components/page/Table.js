@@ -61,6 +61,7 @@ function Table(props) {
         </div>
     )
   }
+  
   else {
     return (
       <div>
@@ -93,9 +94,9 @@ function Table(props) {
         tooltip: 'Save User',
         onClick: (event, rowData) => {
          console.log(rowData)
-         const url = props.event
+         //const url = props.event
          //console.log(url)
-         axios.post(url,{name:rowData.name,branch:rowData.branch}).then((response) =>{
+         window.open(col)
             console.log(response)
             alert(response.data.message)
             navigate('/home',{replace:true})
