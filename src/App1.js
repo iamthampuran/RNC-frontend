@@ -48,25 +48,25 @@ function App1() {
     
       <Routes>
       
-     <Route path="/search" element={<Search />} />
-     {user && role==="A" && <Route path="/home" exact element={<Home2 />} />}
-     {user && role==="F" && <Route path="/home" exact element={<Home4/>} />}
-     {user && role ==="M"&& <Route path = "/home" exact element={<Home3/>}/>}
-     <Route path="/home" exact element={<Login />} />
-    {user && role==="A"&& <Route path="/form-3" element={<Form3 />} />}
-    {user && role==="A"&& <Route path="/form-4" element={<Form4/> } />}
-     <Route path="/sign-in" element={<Login />} />
-    <Route path="/sign-up" element={<SignUp />} />
-    {user && role==="A"&& <Route path="/form-1" element={<Form1 />} />}
-    {user && role==="F" && <Route path="/add-details" element={<AddD />} />}
-    {user && role==="A"&& <Route path = "/Data" element = {<Data />} />}
-    {user && role==="A"&& <Route path = "/AssignMember" element = {<AssignMember />} />}
-    {user && role==="A"&& <Route path = "/RemoveMember" element = {<RemoveMember />} />}
-    {user && role==="A"&& <Route path = "/ShowFee" element = {<ShowFee />} />}
-    {user && role==="A"&& <Route path = "/ShowEvents" element = {<ShowEvents />} />}
-    {user && role==="M"&& <Route path = "/ApprovePublication" element = {<ApprovePublication />} />}
-    {user && role==="F" && <Route path = "/ViewProfile" element = {<ViewProfile />} />}
-    {user && role==='A' && <Route path = "/ListFP" element = {<ListFP />} />}
+            <Route path="/search" element={<Search />} />
+            {user && role==="A" && <Route path="/home" exact element={<Home2 />} />}
+            {user && role==="F" && <Route path="/home" exact element={<Home4/>} />}
+            {user && role ==="M"&& <Route path = "/home" exact element={<Home3/>}/>}
+            <Route path="/home" exact element={<Login />} />
+            {user && role==="A"&& <Route path="/form-3" element={<Form3 />} />}
+            {user && role==="A"&& <Route path="/form-4" element={<Form4/> } />}
+            <Route path="/sign-in" element={<Login />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            {user && role==="A"&& <Route path="/form-1" element={<Form1 />} />}
+            {user && role==="F" && <Route path="/add-details" element={<AddD />} />}
+            {user && role==="A"&& <Route path = "/Data" element = {<Data />} />}
+            {user && role==="A"&& <Route path = "/AssignMember" element = {<AssignMember />} />}
+            {user && role==="A"&& <Route path = "/RemoveMember" element = {<RemoveMember />} />}
+            {user && role==="A"&& <Route path = "/ShowFee" element = {<ShowFee />} />}
+            {user && role==="A"&& <Route path = "/ShowEvents" element = {<ShowEvents />} />}
+            {user && role==="M"&& <Route path = "/ApprovePublication" element = {<ApprovePublication />} />}
+            {user && role==="F" && <Route path = "/ViewProfile" element = {<ViewProfile />} />}
+            {user && role==='A' && <Route path = "/ListFP" element = {<ListFP />} />}
       </Routes>
 
        </Router>

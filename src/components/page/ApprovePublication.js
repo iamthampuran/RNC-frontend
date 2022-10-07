@@ -56,7 +56,7 @@ function ApprovePublication() {
  const handleS= async (e) => {
             e.preventDefault()
             
-            axios.post("http://localhost:3001/RNC/public",{Branch: branch}).then((response) => {
+            axios.post("https://rnc2.herokuapp.com/RNC/public",{Branch: branch}).then((response) => {
                 console.log(response.data)
                 setListOfUsers(response.data.data);
                 //console.log(response.data)
@@ -105,7 +105,7 @@ function ApprovePublication() {
       onClick: (event, rowData) => {
         event.preventDefault()
               const  id=rowData._id
-        const url = "http://localhost:3001/RNC/verified";   
+        const url = "https://rnc2.herokuapp.com/RNC/verified";   
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, {"Title": rowData.Title,"Confirm": "Yes"}).then((response) => {
 
@@ -121,7 +121,7 @@ function ApprovePublication() {
         onClick: (event, rowData) => {
             event.preventDefault()
                   const  id=rowData._id
-            const url = "http://localhost:3001/RNC/verified"; //link of api,which delete from temp table n store details to rejected table  
+            const url = "https://rnc2.herokuapp.com/RNC/verified"; //link of api,which delete from temp table n store details to rejected table  
             //const { data: res } = await axios.post(url, {title : title})  ### must be post 
             axios.post(url, {"Title": rowData.Title,"Confirm": "No"}).then((response) => {
                 console.log("rejecting :"+rowData.title) 

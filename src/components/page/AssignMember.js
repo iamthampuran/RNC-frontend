@@ -36,7 +36,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://localhost:3001/RNC/getFaculties").then((response) => {
+        axios.get("https://rnc2.herokuapp.com/RNC/getFaculties").then((response) => {
             setListOfUsers(response.data.data);
             console.log(listOfUsers)
             //alert(response.data.message)
@@ -57,7 +57,7 @@ const q=()=>{
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://localhost:3001/RNC/getFaculties";
+        const url = "https://rnc2.herokuapp.com/RNC/getFaculties";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
@@ -143,7 +143,7 @@ const q=()=>{
           );
         })}  */}
         <div class="container"><Table col={cols} data={listOfUsers} buttonname ={"Assign"} 
-        event = {"http://localhost:3001/RNC/assignmember"} action = {"Member"}/></div>
+        event = {"https://rnc2.herokuapp.com/RNC/assignmember"} action = {"Member"}/></div>
         
 <br/></div>
     )

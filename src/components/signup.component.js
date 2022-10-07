@@ -44,7 +44,7 @@ const [error, setError] = useState("")
 		e.preventDefault()
     console.log(data)
 		try {
-			const url = "http://localhost:3001/RNC/signup"
+			const url = "https://rnc2.herokuapp.com/RNC/signup"
 			const { data: res } = await axios.post(url, {
         "name": data.name,
         "branch": data.branch,

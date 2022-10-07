@@ -36,7 +36,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.post("http://localhost:3001/RNC/retrieve",{}).then((response) => {
+        axios.post("https://rnc2.herokuapp.com/RNC/retrieve",{}).then((response) => {
             setListOfUsers(response.data.data);
             console.log(listOfUsers)
             //alert(response.data.message)
@@ -56,7 +56,7 @@ const q=()=>{
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://localhost:3001/RNC/retrieve";
+        const url = "https://rnc2.herokuapp.com/RNC/retrieve";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
