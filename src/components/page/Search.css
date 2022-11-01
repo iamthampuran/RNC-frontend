@@ -1,4 +1,4 @@
-.search
+.search1
 {
     
     z-index: 101;
@@ -10,7 +10,19 @@
     background-color: green;*/
 }
 
-.signupParentDiv {
-    
+.search1{
+   text-align: center;
+   
+}
+button{
+    align-items: center;
+}
+
+.details{
+    text-align: center;
+}
+.google{
+    font-size:medium;
+    margin-left:380px;
    
 }

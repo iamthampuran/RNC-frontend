@@ -3,3 +3,14 @@
     font-style: bold;
     font-family: apple;
 }
+
+.member:hover{
+    background-color: rgb(164, 14, 234);
+    color: white;
+    border: 0px;
+}
+
+
+.tabl{
+margin: 55px;
+}

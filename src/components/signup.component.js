@@ -1,6 +1,6 @@
 //import {down} from './Down'
 //import Dropdown from 'react-bootstrap/Dropdown';
-//import React, { Component } from 'react'
+import React, { Component } from 'react'
 
 import {useState} from 'react';
 //import 'bootstrap/dist/css/bootstrap.min.css';
@@ -111,18 +111,22 @@ const handleSelect=(e)=>{
           />
         </div>
 
-        <div className="mb-3">
-          <label> Branch</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="enter Branch name"
-            //value={name}
-            onChange={handleChange}
-            name="branch"
-           // onChange={(e)=>setName(e.target.value)}
-          />
-        </div>
+        
+        <label htmlFor="lname">Branch</label>
+            <br />
+            <select
+            style={{width:"300px"}} className= "input" onChange={handleChange}
+            name="branch" required>
+              <option value = ''>Choose the Branch</option>
+              <option value = "CSE">CSE</option>
+              <option value = "EEE">EEE</option>
+              <option value = "CE">CE</option>
+              <option value = "ME">ME</option>
+              <option value = "ECE">ECE</option>
+            </select>
+
+            <br/>
+            <br />
 
         <div className="mb-3">
           <label>Email address</label>
@@ -177,12 +181,12 @@ const handleSelect=(e)=>{
         <div className="d-grid">
 {error && <div className="error_msg">{error}</div>}
 
-          <button type="submit" className="btn btn-primary">
+          <button className="btn btn-primary">
             Sign Up
           </button>
         </div>
         <p className="forgot-password text-right">
-          Already registered <a href="/sign-in">sign in?</a>
+           <a href="/sign-in">Already registered.? sign in</a>
         </p>
         </div>
       </form>

@@ -19,17 +19,22 @@ export default function Home2() {
 return (
  
   <div>
-    {/* {
-     console.log("oooo"+localStorage.token)
+  
+    <div className='logoutstyle'>
+    
+    <h4 id="welcomemsg" >Welcome {localStorage.name} of {localStorage.branch}  Department<br/>
+    </h4> 
+    <button className="button3 " onClick={slogout}>Logout</button>
+    </div><br/><br/>
 
-    } */}
-    <div className='logout'><h4>Welcome {localStorage.name}, of {localStorage.branch}</h4> <button style={{background:"#3399aa"}} onClick={slogout}>LOG OUT</button></div>
   <Row>
   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; 
     <Col>
-    <MDBCard style={{ maxWidth: '33rem' }}>
+    <MDBCard style={{ maxWidth: '22rem', height:'25rem'}}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://cdn.vox-cdn.com/thumbor/4bIDn1aNxrUWu7sUbCcPGojI6gM=/0x10:1000x760/1200x800/filters:focal(0x10:1000x760)/cdn.vox-cdn.com/uploads/chorus_image/image/48996123/shutterstock_212822350.0.0.jpg' fluid alt='...' />
+        <MDBCardImage src='https://www.wiley.com/content/dam/wiley-dotcom/en/b2b/images/card/book-subketcs.png' fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}>
 
@@ -38,7 +43,10 @@ return (
         </a>
       </MDBRipple>
       <MDBCardBody>
+      
+        <br/>
         <MDBCardTitle>Publication Details</MDBCardTitle>
+        <br/>
         {/* <MDBCardText>
           Add details of new Publications  through a form 
         </MDBCardText>
@@ -50,7 +58,7 @@ return (
   </Col>
    
     <Col>
-    <MDBCard style={{ maxWidth: '22rem' }}>
+    <MDBCard style={{ maxWidth: '22rem', height:'25rem'}}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
         <MDBCardImage src='https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg' fluid alt='...' />
         <a>

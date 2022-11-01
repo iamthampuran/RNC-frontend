@@ -88,69 +88,23 @@ const print_all = () => {
       }
 
     return (
-<div className='search'>
-<h1>&nbsp;&nbsp;&nbsp;searching </h1>
+<div className='search1'><br/>
+<h1  className='search' >Event Details</h1><br/>
 <form>
 <label>
-    &nbsp;&nbsp; view all details of Events
-    </label>&nbsp;&nbsp;&nbsp;
-    <button onClick={handleS}>View all</button>&nbsp;&nbsp;&nbsp;&nbsp;
-    <button onClick={q}>Home</button>
-{/* 
-            <br/>
-<br/>
-<label>
-     Choose field to be search
-    </label>&nbsp;&nbsp;&nbsp;
-   
-    
-  <select onChange={handleSChange}>
-      <option value="title">Title</option>
-      <option value="year">Year</option>
-  
-     </select>
-     <br/>
-     <br/>
-     <label>
-     Enter {name1} to search
-    </label>&nbsp;&nbsp;
-    <input style={{ width:"500px" }}
-              className="input"
-              type="text"
-              id="fname"
-              name={name1}
-           
-            onChange={handleChange}
-            value={data4.title}
-            
-            
-              required
-            />&nbsp;&nbsp;
-            
-    <button onClick={handleSq}>search</button>
-     */}
+    <h4>Click to view Event details </h4>
+    </label>
+    <br></br>
+    <button className="btn21 button21" onClick={handleS}>View all</button>&nbsp;
+    <button className="btn21 button22" onClick={q}>Home</button>
+
 </form>
-<br/>
-<br/>
-<br/>
 
-{/* {listOfUsers
-.sort( (a,b)=> a.Title.localeCompare(b.Title) )
-.map((user) => {
-          return (
-            <div><br/>
-                
-                &nbsp; &nbsp;
-                <h6>Title: {user.Title}&nbsp;&nbsp;
-             Author: {user.Faculties}&nbsp;&nbsp;
-              Date: {user.DateOfApproval}</h6>
-            
-            </div>
-          );
-          <div class="container"><Table col={cols} data={listOfUsers} action ={"Events"} buttonname = {"View"} /></div> //put outside all brackets before closing div
-        })}  */}
 
-        
+
+
+
+        <div className='tabl'>
         <MaterialTable
 
 options={{
@@ -197,9 +151,11 @@ localization={{
       }
     }
   ]}
+  title={"Event Details"}
   data ={listOfUsers}
   columns = {cols}
   />
+  </div>
 </div>
     )
     }

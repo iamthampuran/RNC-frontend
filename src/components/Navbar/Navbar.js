@@ -23,19 +23,18 @@ function NavBar() {
   const user = localStorage.getItem("token");
 
   return (
+    
+  
     <div className='navbar'> 
-    <a href="https://mgmits.ac.in/">
+    {/* <a href="https://mgmits.ac.in/">
        <img className="logo" src={imh1}></img></a>
+        */}
+      
+      
+        <a href="/sign-in" ><h1 className='rnc'>RESEARCH AND CONSULTANCY CELL</h1></a>
        
-      
-       <a href="/sign-in" >
-       <h1 className='rnc'>RESEARCH AND CONSULTANCY CELL</h1></a>
-      
-       <img className="nba" src="https://mgmits.ac.in/wp-content/themes/muthoot/images/nba.png"></img>
-       <img className="nirf" src="https://mgmits.ac.in/wp-content/themes/muthoot/images/nirf-logo.png"></img>
-       <img className="ariia" src="https:/mgmits.ac.in/wp-content/themes/muthoot/images/ariia_logo.jpg"></img>
-     <Banner/>
 </div>
+
 
 
 

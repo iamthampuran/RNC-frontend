@@ -24,7 +24,7 @@ import ApprovePublication from './components/page/ApprovePublication'
 import ViewProfile from './components/page/ViewProfile'
 import ListFP from './components/page/ListFP'
 import RemoveMember from './components/page/RemoveMember'
-
+import './App1.css'
 
 
 

@@ -103,7 +103,7 @@ const [data, setData] = useState({ email: "", password: "" })
         {error && <div className="error_msg">{error}</div>}
         <div className="d-grid">
           <button  type="submit" className="btn btn-primary">
-            Submit
+            Log In
           </button>
           <br/>
           <p className="forgot-password text-right">

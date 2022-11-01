@@ -104,7 +104,7 @@ function Form1() {
           type="text"
           //id="lname"
           //name="phone"
-          placeholder="enter name and designation PI / Co-PI"
+          placeholder="Enter name and designation PI / Co-PI"
           name="name"
           onChange={handleChange}
           value={data3.name}
@@ -128,7 +128,7 @@ function Form1() {
               required
         />
          <br />
-        <label htmlFor="lname">Govt / Private</label>
+        <label htmlFor="lname">Govt/Private</label>
         <br />
         <input
           style={{ width:"500px" }}
@@ -136,7 +136,7 @@ function Form1() {
           type="text"
           //id="lname"
           //name="phone"
-          placeholder="enter govt or private"
+          placeholder="Govt or PVT"
           name="GoP"
               onChange={handleChange}
               value={data3.GoP}
@@ -166,7 +166,7 @@ function Form1() {
           type="number"
           //id="lname"
           //name="phone"
-          placeholder="enter the amount in Rupees"
+          placeholder="Enter the amount in Rupees"
           name="amount"
               onChange={handleChange}
               value={data3.amount}

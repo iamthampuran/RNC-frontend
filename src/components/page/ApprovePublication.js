@@ -3,7 +3,7 @@ import "./Search.css"
 import { useState } from 'react'
 import axios from "axios";
 import MaterialTable from 'material-table';
-import "./style.css"
+
 import { Title } from '@material-ui/icons';
 import {useNavigate} from "react-router-dom"
 
@@ -69,31 +69,37 @@ function ApprovePublication() {
               //const id="abc"
              // <a href={'https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q='  +id+ '&btnG='} target="_blank">click here</a>
     return (
-<div className='search'>
-<h1>&nbsp;Verification of publication details </h1>
+      <div>
+<div className='details'>
+<h1 className='search'>Verification of publication details </h1>
 <form>
-<label>
-    &nbsp;&nbsp; view all non-verified deatils of publication
-    </label>&nbsp;&nbsp;&nbsp;
-    <button onClick={handleS}>View all</button>&nbsp;&nbsp;&nbsp;&nbsp;
-    <button onClick={q}>Home</button>
+<h5 >
+    View all non-verified publications
+    </h5>
+    &nbsp;&nbsp;
+    <button className="btn21 button21" onClick={handleS}>View all</button>&nbsp;
+    <button className="btn21 button21" onClick={q}>Home</button>
 
 </form>
 <br/>
-
+</div>
+<div className='google'>
 <h6>
-&nbsp;&nbsp;enter book title to search on google Scholar : &nbsp;
-<input onChange={event => setChoose(event.target.value)} />&nbsp;&nbsp;&nbsp;
-<button onClick={handle}>search on Scholar</button>
+Enter book title to search on Google Scholar &nbsp;:&nbsp;&nbsp;
+<input onChange={event => setChoose(event.target.value)} />&nbsp;
+<button className="btn21 button21" onClick={handle}>Search on Scholar</button> &nbsp;&nbsp;<br/><br/>
+Enter book title to search on Google 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;
+<input onChange={event => setChoose2(event.target.value)} />
+&nbsp;
+<button className="btn21 button21" onClick={handle2}>Search on Google</button>
 <br/><br/>
-&nbsp;&nbsp;enter name to search on google : &nbsp;
-<input onChange={event => setChoose2(event.target.value)} />&nbsp;&nbsp;&nbsp;
-<button onClick={handle2}>google search</button>
-<br/><br/>
-&nbsp;&nbsp;enter name of author to search on scopus :&nbsp;
-<input onChange={event => setChoose3(event.target.value)} />&nbsp;&nbsp;&nbsp;
-<button onClick={handle3}>search on scopus</button><br/><br/>
+Enter name of author to search on Scopus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;
+<input onChange={event => setChoose3(event.target.value)} />
+&nbsp;
+<button className="btn21 button21" onClick={handle3}>Search on Scopus</button><br/><br/>
 </h6><br/>
+</div>
 <div class="container">
 <MaterialTable
   
@@ -134,6 +140,7 @@ function ApprovePublication() {
 
        
   ]}
+  title={"Publication Details"}
     data={listOfUsers}
       columns={columns1}
        />

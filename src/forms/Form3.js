@@ -88,7 +88,7 @@ const navigate =useNavigate();
           onChange={handleChange}
         />
          <br />
-        <label htmlFor="fname">year</label>
+        <label htmlFor="fname">Year</label>
         <br />
         <input
          style={{ width:"500px" }}
@@ -101,7 +101,7 @@ const navigate =useNavigate();
         />
 
 <br />
-        <label htmlFor="fname">type of program</label>
+        <label htmlFor="fname">Type Of Program</label>
         <br />
         <input
          style={{ width:"500px" }}
@@ -120,7 +120,7 @@ const navigate =useNavigate();
           type="number"
           //id="fname"
           name="totalfee"
-          placeholder="Enter the fee to be reimbursed"
+          placeholder="Enter the fee"
           //value={fee}
           onChange={handleChange}
           
@@ -135,7 +135,7 @@ const navigate =useNavigate();
           type="text"
           id="fname"
           name="from"
-          placeholder="Enter the type of event"
+          placeholder="NIT/IIT/GOVT/PVT"
           onChange={handleChange}
         />
        

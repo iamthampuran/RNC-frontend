@@ -24,11 +24,17 @@ return (
      console.log("oooo"+localStorage.token)
 
     } */}
-    <div className='logout'><h4>Welcome {localStorage.name}</h4> <button style={{background:"#3399aa"}} onClick={slogout}>LOG OUT</button></div>
+    <div className='logoutstyle'>
+   
+     
+      <h4 id="welcomemsg">Welcome {localStorage.name} of {localStorage.branch} Department <br/>
+      </h4> 
+    <button className="button3 "  onClick={slogout}>Logout</button></div>
+   
+    
   <Row>
-   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     <Col>
-    <MDBCard style={{ maxWidth: '30rem' }}>
+    <MDBCard style={{ width: '22rem',marginLeft:'40%',marginTop:'50px' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
         <MDBCardImage src='https://www.usnews.com/dims4/USNEWS/dadfebd/2147483647/crop/2000x1334%2B0%2B0/resize/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F33%2Fcd%2F58cf2eda41f7900bc231e5874612%2F200212-collegecosts-stock.jpg' fluid alt='...' />
         <a>
@@ -48,8 +54,9 @@ return (
   
    
   </Row>
-
+ 
   
   </div>
+  
 );
 }

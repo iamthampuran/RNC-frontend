@@ -15,6 +15,7 @@ function Table(props) {
     return (
       <div>
   <MaterialTable 
+  title={props.title_name}
    options={{
       exportButton: {
           paging:true,
@@ -64,9 +65,9 @@ function Table(props) {
   
   else {
     return (
-      <div>
+      <div className='tabl'>
   <MaterialTable 
-  title={props.action}
+  title={props.title_name}
    options={{
       exportButton: {
           csv: true,
@@ -104,6 +105,7 @@ function Table(props) {
         }
       }
     ]}*/
+
       data={props.data}
         columns={columns1}
          />

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import axios from "axios";
 import MaterialTable from 'material-table';
 import { useNavigate } from "react-router-dom";
-
+import "./style.css"
 
 function ViewProfile() {
     const navigate = useNavigate();
@@ -40,7 +40,8 @@ function ViewProfile() {
        //const { data: res } = await axios.post(url, {title : title})  ### must be post 
        axios.post(url,{name:name,branch:branch}).then((response) => {
            setListOfUsers(response.data.data);
-           console.log(response.data)                //required ones
+           console.log(response.data) 
+           alert(response.data.message)               //required ones
          })
         }
         else if(choose==="rejected"){
@@ -65,28 +66,27 @@ function ViewProfile() {
 //     const url ='https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q='  +{title}+ '&btnG='
 //     window.open(url);}
   return (
-<div className='search'>
+<div className='search1'>
     
-<h1>&nbsp;&nbsp;&nbsp;WELOCME FACULTY</h1>
-<h5>Name : {name}</h5><br/>
-<h5>Department : {branch}</h5>
+<h1 className='search'>&nbsp;&nbsp;WELOCME FACULTY</h1>
+<h5 className='search'>&nbsp;&nbsp;Name : {name}</h5><br/>
+<h5 className='search'>&nbsp;&nbsp;Department : {branch}</h5>
 <br/>
-<h6>choose to view publications : &nbsp;&nbsp;
-<select onChange={handleSChange} >
+<h5 >&nbsp;  &nbsp;Choose to view publications : &nbsp;&nbsp;
+<select className='viewDrop' onChange={handleSChange} >
       <option value="approved">Approved publications</option>
       <option value="rejected">Rejected publications</option>
      </select>&nbsp;&nbsp;
-     <button onClick={handleSq}>View</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     <button onClick={q}>Home</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     
-     </h6>
-     {/* <input onChange={event => setTitle(event.target.value)} > */}
-
+     <button className="btn21 button21" onClick={handleSq}>View</button>&nbsp;
+     <button className="btn21 button22 " onClick={q}>Home</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     </h5>
+<div style={{margin:"25px"}}>
      <MaterialTable
-
+    title={"List of Publications"}
     data={listOfUsers}
       columns={columns1}
        />
+       </div>
     </div>
   )
 }
