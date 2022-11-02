@@ -41,7 +41,7 @@ function ViewProfile() {
        axios.post(url,{name:name,branch:branch}).then((response) => {
            setListOfUsers(response.data.data);
            console.log(response.data) 
-           alert(response.data.message)               //required ones
+           //alert(response.data.message)               //required ones
          })
         }
         else if(choose==="rejected"){
@@ -52,7 +52,7 @@ function ViewProfile() {
             axios.post(url,{name:name,branch:branch}).then((response) => {
                 console.log(response.data)
                 setListOfUsers(response.data.removed);
-                alert(response.data.message)
+                //alert(response.data.message)
             //    console.log(setListOfUsers) 
             })
         } 
