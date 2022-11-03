@@ -127,8 +127,13 @@ localization={{
   toolbar: {
     exportCSVName: "Export as Excel format",
     exportPDFName: "Export as pdf!!"
-  }
-}}    
+           },
+    header: {
+      actions:'links' 
+      }
+    }
+   
+}    
 
   
   actions={[

@@ -33,7 +33,8 @@ const [data, setData] = useState({ email: "", password: "" })
       // fetch("http://localhost:8080/api/auth")
       // .then(response=>response.json())
      // console.log(res.token)
-      alert(res.message)
+     if(res.status=="FAILED")
+        alert(res.message)
       localStorage.setItem("role", res.data);
 			localStorage.setItem("token", res.token);
       localStorage.setItem("name", res.name);
