@@ -115,7 +115,7 @@ options={{
       
   },   
   headerStyle: {
-    backgroundColor: '#01579b',
+    backgroundColor: '#40ad9f',
     color: '#FFF'
   },
   paging:true,
@@ -129,7 +129,7 @@ localization={{
     exportPDFName: "Export as pdf!!"
            },
     header: {
-      actions:'links' 
+      actions:'Links' 
       }
     }
    

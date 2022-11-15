@@ -24,7 +24,7 @@ function Table(props) {
           
       },   
       headerStyle: {
-        backgroundColor: '#01579b',
+        backgroundColor: '#40ad9f',
         color: '#FFF'
       },
       paging:true,

@@ -24,16 +24,17 @@ function NavBar() {
 
   return (
     
-  
+    
     <div className='navbar'> 
+   
     {/* <a href="https://mgmits.ac.in/">
        <img className="logo" src={imh1}></img></a>
         */}
       
       
         <a href="/sign-in" ><h1 className='rnc'>RESEARCH AND CONSULTANCY CELL</h1></a>
+        </div>
        
-</div>
 
 
 

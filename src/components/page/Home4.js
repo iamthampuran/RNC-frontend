@@ -26,7 +26,7 @@ return (
     </h4> 
     <button className="button3 " onClick={slogout}>Logout</button>
     </div><br/><br/>
-
+    <div className='mask'>
   <Row>
   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -76,8 +76,7 @@ return (
     </MDBCard>
   </Col>
  </Row>
-
-  
+ </div>
   </div>
 );
 }

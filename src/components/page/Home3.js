@@ -31,7 +31,7 @@ return (
       </h4> 
     <button className="button3 "  onClick={slogout}>Logout</button></div>
    
-    
+   <div className='mask'> 
   <Row>
     <Col>
     <MDBCard style={{ width: '22rem',marginLeft:'40%',marginTop:'50px' }}>
@@ -54,7 +54,7 @@ return (
   
    
   </Row>
- 
+  </div>
   
   </div>
   

@@ -29,8 +29,9 @@ return (
     <br/> </h4>
     <button className="button3 " onClick={slogout}>Logout</button>
     </div>
-    </div>
     <br/>
+    </div>
+    
     <div className='mask'>
   <Row>
   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
