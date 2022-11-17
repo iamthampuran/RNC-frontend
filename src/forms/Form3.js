@@ -16,7 +16,8 @@ function Form3() {
         year: 0,
         totalfee: 0,
         from: '',
-        type: ''
+        type: '',
+        institute: ''
   })
 
   const handleChange = (e) => {
@@ -136,6 +137,19 @@ const navigate =useNavigate();
           id="fname"
           name="from"
           placeholder="NIT/IIT/GOVT/PVT"
+          onChange={handleChange}
+        />
+
+<br />
+        <label htmlFor="fname">Institute</label>
+        <br />
+        <input
+         style={{ width:"500px" }}
+          className="input"
+          type="text"
+          id="fname"
+          name="institute"
+          placeholder="Enter name of the institute"
           onChange={handleChange}
         />
        

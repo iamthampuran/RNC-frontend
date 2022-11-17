@@ -22,9 +22,9 @@ const Data = () => {
             console.log(res.data)
             console.log(res.data.count)
             doc.text(600,50,"MITS|RNC|"+res.data.year+"|"+res.data.count)
-            doc.setFontSize(15).setFont(undefined,'normal')
-            doc.text(40,300,res.data.documentation)
-            doc.setFontSize(15)
+            doc.setFontSize(17).setFont(undefined,'normal')
+            doc.text(20,300,res.data.documentation,{maxWidth:750})
+            doc.setFontSize(17)
             doc.text(500,350,res.data.name)
             doc.save("Fee Reimbursed.pdf");
             })

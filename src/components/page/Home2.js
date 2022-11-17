@@ -49,7 +49,7 @@ return (
         <MDBCardText>
           Reimburesement of fees based on Organizational structure and criterias.
         </MDBCardText>
-        <MDBBtn href='/form-3'>add new  </MDBBtn><br/><br/>
+        <MDBBtn href='/form-3'>Add new  </MDBBtn><br/><br/>
         <MDBBtn href='/ShowFee'>Show list</MDBBtn>
       </MDBCardBody>
     </MDBCard>

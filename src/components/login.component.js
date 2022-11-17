@@ -64,7 +64,7 @@ const [data, setData] = useState({ email: "", password: "" })
 //          </div> */}
 
     return (
-      <div>
+      <div className="main">
       
  
       <div className="ww">

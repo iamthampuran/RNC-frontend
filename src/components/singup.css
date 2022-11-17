@@ -91,3 +91,7 @@
     justify-content: end;
     padding-right: 42px;
   }
+
+  .main{
+    background-color: aqua;
+  }

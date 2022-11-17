@@ -6,8 +6,11 @@
 .search{
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    background-color:rgb(85, 166, 170);   
 }
-
+.search1{
+  background-color: rgb(85, 166, 170);   
+}
 
 .btn21{
     
@@ -56,3 +59,4 @@
     background-color: #ecf0f2;
     color:rgb(10, 11, 11);
   }
+  

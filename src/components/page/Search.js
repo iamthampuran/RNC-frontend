@@ -17,6 +17,10 @@ const cols = [
   { title: 'Title', field: 'Title' },
   { title: 'Author', field: 'Faculties' },
   { title: 'Year', field: 'Year', type: 'Number' },
+  { title: 'Journal Name', field: 'Name'},
+  { title: 'MITS affiliation',field: 'Affiliated'},
+  { title: 'Type', field: 'Type'},
+  { title: 'Category', field: 'SubType'}
  // { title: 'Journal Name', field: 'nameJ' }
 ]
 
