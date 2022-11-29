@@ -25,7 +25,7 @@ return (
     } */}
     <div className='logoutstyle'>
     <div >
-    <h4 id="welcomemsg">Welcome {localStorage.name}
+    <h4 id="  msg">Welcome {localStorage.name}
     <br/> </h4>
     <button className="button3 " onClick={slogout}>Logout</button>
     </div>

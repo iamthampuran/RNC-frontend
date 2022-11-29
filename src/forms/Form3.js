@@ -21,9 +21,9 @@ function Form3() {
   })
 
   const handleChange = (e) => {
-		setData({ ...data, [e.target.name]: e.target.value })
+    setData({ ...data, [e.target.name]: e.target.value })
     console.log(data)
-	}
+  }
   const [fee,setFee] = useState('')
   //const [venue,setVenue] = useState('')
  // const [date,setDate] = useState('')
@@ -126,22 +126,9 @@ const navigate =useNavigate();
           onChange={handleChange}
           
         />
-        
-        <br />
-        <label htmlFor="fname">From</label>
-        <br />
-        <input
-         style={{ width:"500px" }}
-          className="input"
-          type="text"
-          id="fname"
-          name="from"
-          placeholder="NIT/IIT/GOVT/PVT"
-          onChange={handleChange}
-        />
-
-<br />
-        <label htmlFor="fname">Institute</label>
+ 
+            <br />
+        <label htmlFor="fname">Name of Institute</label>
         <br />
         <input
          style={{ width:"500px" }}
@@ -151,8 +138,31 @@ const navigate =useNavigate();
           name="institute"
           placeholder="Enter name of the institute"
           onChange={handleChange}
-        />
-       
+        /><br/>  <br />
+              <label htmlFor="fname">Type of institute</label>
+        
+        {/* <br />
+        <input
+         style={{ width:"500px" }}
+          className="input"
+          type="text"
+          id="fname"
+          name="from"
+          placeholder="NIT/IIT/GOVT/PVT"
+          onChange={handleChange}
+        /> */}
+
+&nbsp; &nbsp; 
+<select
+            style={{width:"150px"}} className= "input" onChange={handleChange}
+            name="from" required>
+              
+              <option value = "NIT">NIT</option>
+              <option value = "IIT">IIT</option>
+              <option value = "GOVT">GOVT</option>
+              <option value = "PVT">PVT</option>
+
+            </select>
 
         <br />
         <br />

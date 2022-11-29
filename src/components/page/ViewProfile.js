@@ -20,7 +20,8 @@ function ViewProfile() {
         { title: 'Title', field: 'Title' },
         { title: 'Author', field: 'Faculties' },
         { title: 'Year', field: 'Year' },
-        { title: 'Journal Name', field: 'Name' }
+        { title: 'Journal Name', field: 'Name' },
+        { title: 'MITS Affiliation', field: 'Affiliated'}
       ]
       
       const data1=[{title: 'Mehmet', author: 'Baran',year: 1987, nameJ: 'rghj'},

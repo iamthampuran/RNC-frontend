@@ -18,7 +18,7 @@ export default function Home2() {
   console.log("Branch = ",localStorage.branch,"Name = ",localStorage.name)
 return (
  
-  <div>
+  <div className='home2'>
   
     <div className='logoutstyle'>
     

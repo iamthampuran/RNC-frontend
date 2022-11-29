@@ -20,7 +20,8 @@ function ApprovePublication() {
         { title: 'Year', field: 'Year'},
         { title: 'Journal Name', field: 'Name' },
         { title: 'Branch', field: 'Branch'},
-        { title: 'Details', field: 'Details'}
+        { title: 'Details', field: 'Details'},
+        { title: 'MITS Affiliated', field : 'Affiliated '}
       ]
       const q=()=>{
         navigate('/home',{replace:true}) 
