@@ -44,13 +44,13 @@ const [error, setError] = useState("")
 		e.preventDefault()
     console.log(data)
 		try {
-			const url = "https://rnc2.herokuapp.com/RNC/signup"
+			const url = "http://localhost:3001/RNC/signup"
 			const { data: res } = await axios.post(url, {
         "name": data.name,
         "branch": data.branch,
         "email": data.email,
         "password": data.password,
-        "dateOfBirth": data.dateOfBirth
+        "OCRid": data.OCRid
       })
 			navigate("/sign-in")
       alert(res.message)
@@ -162,15 +162,15 @@ const handleSelect=(e)=>{
         </div>
 
         <div className="mb-3">
-          <label>Date Of Birth</label>
+          <label>OCRid</label>
           <input
             type="text"
             className="form-control"
           
 							required
-            placeholder="MM-DD-YYYY"
+            placeholder="Enter here"
             onChange={handleChange}
-            name='dateOfBirth'
+            name='OCRid'
            // value={pass}
             //onChange={(e)=>setPass(e.target.value)}
           />
