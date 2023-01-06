@@ -44,7 +44,7 @@ const [error, setError] = useState("")
 		e.preventDefault()
     console.log(data)
 		try {
-			const url = "http://localhost:3001/RNC/signup"
+			const url = "http://34.100.147.79:3001/RNC/signup"
 			const { data: res } = await axios.post(url, {
         "name": data.name,
         "branch": data.branch,

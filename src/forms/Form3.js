@@ -45,7 +45,7 @@ const navigate =useNavigate();
     // console.log("amount : "+amount)
     console.log(data)
     try{
-      const url = "https://rnc2.herokuapp.com/RNC/reimbursment";
+      const url = "http://34.100.147.79:3001/RNC/reimbursment";
       const {data: res} = await axios.post(url,data)
       alert(res.message)
 

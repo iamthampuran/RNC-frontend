@@ -57,7 +57,7 @@ function ApprovePublication() {
  const handleS= async (e) => {
             e.preventDefault()
             
-            axios.post("https://rnc2.herokuapp.com/RNC/public",{Branch: branch}).then((response) => {
+            axios.post("http://34.100.147.79:3001/RNC/public",{Branch: branch}).then((response) => {
                 console.log(response.data)
                 setListOfUsers(response.data.data);
                 //console.log(response.data)
@@ -112,7 +112,7 @@ Enter name of author to search on Scopus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&n
       onClick: (event, rowData) => {
         event.preventDefault()
               const  id=rowData._id
-        const url = "https://rnc2.herokuapp.com/RNC/verified";   
+        const url = "http://34.100.147.79:3001/RNC/verified";   
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, {"Title": rowData.Title,"Confirm": "Yes"}).then((response) => {
 
@@ -128,11 +128,11 @@ Enter name of author to search on Scopus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&n
         onClick: (event, rowData) => {
             event.preventDefault()
                   const  id=rowData._id
-            const url = "https://rnc2.herokuapp.com/RNC/verified"; //link of api,which delete from temp table n store details to rejected table  
+            const url = "http://34.100.147.79:3001/RNC/verified"; //link of api,which delete from temp table n store details to rejected table  
             //const { data: res } = await axios.post(url, {title : title})  ### must be post 
             axios.post(url, {"Title": rowData.Title,"Confirm": "No"}).then((response) => {
                 console.log("rejecting :"+rowData.title) 
-                //alert(response.data.message)    
+                alert(response.data.message)    
                // console.log(listOfUsers)                //required ones
               })
            console.log(rowData._id)

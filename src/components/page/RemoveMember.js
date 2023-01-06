@@ -36,7 +36,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("https://rnc2.herokuapp.com/RNC/getMember").then((response) => {
+        axios.get("http://34.100.147.79:3001/RNC/getMember").then((response) => {
             setListOfUsers(response.data.data);
             console.log(listOfUsers)
             //alert(response.data.message)
@@ -56,7 +56,7 @@ const q=()=>{
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "https://rnc2.herokuapp.com/RNC/getMember";
+        const url = "http://34.100.147.79:3001/RNC/getMember";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
@@ -92,7 +92,7 @@ Click to view the details of Members
 
 </form>
         <div class="container"><Table col={cols} data={listOfUsers} buttonname ={"Remove"} 
-        event = {"https://rnc2.herokuapp.com/RNC/remove"} title_name = {"Member"} action = {"Member"}/></div>
+        event = {"http://34.100.147.79:3001/RNC/remove"} title_name = {"Member"} action = {"Member"}/></div>
         
 <br/></div>
     )

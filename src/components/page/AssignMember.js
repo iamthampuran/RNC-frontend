@@ -36,7 +36,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("https://rnc2.herokuapp.com/RNC/getFaculties").then((response) => {
+        axios.get("http://34.100.147.79:3001/RNC/getFaculties").then((response) => {
             setListOfUsers(response.data.data);
             console.log(listOfUsers)
             //alert(response.data.message)
@@ -57,7 +57,7 @@ const q=()=>{
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "https://rnc2.herokuapp.com/RNC/getFaculties";
+        const url = "http://34.100.147.79:3001/RNC/getFaculties";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
@@ -96,7 +96,7 @@ const q=()=>{
           <Table
             title_name={"Faculties"}
          col={cols} data={listOfUsers} buttonname ={"Assign"} 
-        event = {"https://rnc2.herokuapp.com/RNC/assignmember"} action = {"Member"}
+        event = {"http://34.100.147.79:3001/RNC/assignmember"} action = {"Member"}
        />
         </div>
         

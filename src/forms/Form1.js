@@ -28,7 +28,7 @@ function Form1() {
 	const handleSub = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "https://rnc2.herokuapp.com/RNC/addFP";
+			const url = "http://34.100.147.79:3001/RNC/addFP";
 			const { data: res } = await axios.post(url, data3);
 			navigate("/home");
 			console.log(res.message);

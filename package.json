@@ -37,7 +37,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && scp ./build/ technicalsupport@34.100.147.79:/var/www/html/",
+    "build": "react-scripts build && scp -r ./build/ 19cs020@34.100.147.79:/var/www/html/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

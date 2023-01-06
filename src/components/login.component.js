@@ -28,7 +28,7 @@ const [data, setData] = useState({ email: "", password: "" })
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "https://rnc2.herokuapp.com/RNC/signin";
+			const url = "http://34.100.147.79:3001/RNC/signin";
 			const { data: res } = await axios.post(url, data);
       // fetch("http://localhost:8080/api/auth")
       // .then(response=>response.json())

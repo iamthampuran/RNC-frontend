@@ -41,7 +41,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("https://rnc2.herokuapp.com/RNC/getEvents").then((response) => {
+        axios.get("http://34.100.147.79:3001/RNC/getEvents").then((response) => {
             setListOfUsers(response.data.data);
 
             console.log(listOfUsers)
@@ -63,7 +63,7 @@ const print_all = () => {
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "https://rnc2.herokuapp.com/RNC/getEvents";
+        const url = "http://34.100.147.79:3001/RNC/getEvents";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
