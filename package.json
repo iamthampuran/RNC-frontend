@@ -20,7 +20,6 @@
     "fs": "^0.0.1-security",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.25",
-    "material-table": "^1.63.0",
     "mdb-react-ui-kit": "^4.0.0",
     "pdfkit": "^0.13.0",
     "process": "^0.11.10",
