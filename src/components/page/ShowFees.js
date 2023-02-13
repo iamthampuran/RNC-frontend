@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Search.css"
 import { useState } from 'react'
 import axios from "axios";
-import Table from './Table'
 import "./style.css"
-
+import ReactFlexyTable from "react-flexy-table"
+import "react-flexy-table/dist/index.css"
+import styles from "./flexytable.css"
 
 function ShowFee() {
   const navigate = useNavigate()
@@ -14,25 +15,21 @@ const [data4, setData4] = useState([])
 const [name1,setName1]=useState("title")
 const [error, setError] = useState("");
 const cols = [
-    {title: 'Student Names', field: 'studentnames'},
-  { title: 'Name', field: 'name' },
-  { title: 'Fee Spent', field: 'totalfee' },
-  { title: 'Year', field: 'year'},
+    {header: 'Student Names', key: 'studentnames'},
+  { header: 'Name', key: 'name' },
+  { header: 'Fee Spent', key: 'totalfee' },
+  { header: 'Year', key: 'year'},
  // { title: 'Journal Name', field: 'nameJ' }
 ]
 console.log(1)
 
-// const handleSub=(e)=>{
-//     e.preventDefault()
-//     console.log(search)
-// }
+const newArray = listOfUsers.map(({title,name,agency,GoP,year,amount,dept}) => ({title,name,agency,GoP,year,amount,dept}));
 
-// }
-const handleChange = ({ currentTarget: input }) => {
-    //console.log("ghjk"+name1)
-    setData4({ [input.name]: input.value });
-};
-
+const downloadExcelProps = {
+        type: 'filtered',
+        title: 'Fee Reimbursement Details',
+        showLabel: cols,
+      }
 // const title="Mongto"  ###########can be used
 const handleS = async (e) => {
     e.preventDefault()
@@ -46,16 +43,11 @@ const handleS = async (e) => {
            // print_all()                     //all publications retreival
            
           });}
+
           const q=()=>{
             navigate('/home',{replace:true}) 
             }
-const print_all = () => {
-  
-  for(let i=0;i<5;i++)
-  {
-    console.log(listOfUsers[i].Title)
-  }
-}
+
  const handleSq= async (e) => {
             e.preventDefault()
              try {
@@ -98,7 +90,18 @@ const print_all = () => {
 
 
 
-        <div class="container"><Table col={cols} data={listOfUsers} title_name ={"Fee Details"} /></div>
+<div style={{margin:"45px"}}>
+          <ReactFlexyTable 
+     data={listOfUsers} 
+     filterable 
+     sortable
+      pageSizeOptions={[5,10,25,50,100,250,500]}
+      globalSearch
+      downloadExcelProps={downloadExcelProps}
+      showExcelButton
+      columns={cols}
+      />
+          </div>
         
 <br/></div>
     )

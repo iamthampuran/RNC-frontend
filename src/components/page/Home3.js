@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/col';
 import Row from 'react-bootstrap/Row';
 import imh1 from "../../images/logomits.png"
 import './Home2.css';
-
+import verify from "./verify.png"
 
 
 export default function Home2() {
@@ -36,7 +36,7 @@ return (
     <Col>
     <MDBCard style={{ width: '22rem',marginLeft:'40%',marginTop:'50px' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://www.usnews.com/dims4/USNEWS/dadfebd/2147483647/crop/2000x1334%2B0%2B0/resize/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F33%2Fcd%2F58cf2eda41f7900bc231e5874612%2F200212-collegecosts-stock.jpg' fluid alt='...' />
+        <MDBCardImage src={verify}  width="90%" fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>

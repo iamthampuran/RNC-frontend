@@ -5,7 +5,12 @@ import Col from 'react-bootstrap/col';
 import Row from 'react-bootstrap/Row';
 import imh1 from "../../images/logomits.png"
 import './Home2.css'
-
+import feepic from "./feepic.jpeg"
+import eventpic from "./eventpic.jpeg"
+import fdpic from "./fdpic.jpeg"
+import publicpic from "./public.jpeg"
+import memberpic from "./memberpic.jpeg"
+import official from "./official.jpeg"
 
 export default function Home2() {
   const slogout=()=>{
@@ -38,7 +43,7 @@ return (
     <Col>
     <MDBCard style={{ maxWidth: '22rem', height:'25rem'}}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://www.usnews.com/dims4/USNEWS/dadfebd/2147483647/crop/2000x1334%2B0%2B0/resize/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F33%2Fcd%2F58cf2eda41f7900bc231e5874612%2F200212-collegecosts-stock.jpg' fluid alt='...' />
+        <MDBCardImage src={feepic} fluid alt='...' />
         <a>
           <div className='maskk' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>
@@ -57,7 +62,7 @@ return (
     <Col>
     <MDBCard style={{ maxWidth: '22rem', height:'25rem' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://thumbs.dreamstime.com/b/event-planning-concept-events-word-notebook-clock-notepad-computer-desk-98974101.jpg' fluid alt='...' />
+        <MDBCardImage src={eventpic} fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>
@@ -76,7 +81,7 @@ return (
   <Col>
     <MDBCard style={{ maxWidth: '22rem', height:'25rem' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://s3.amazonaws.com/aws.upl/nwica.org/webinar3.jpeg' fluid alt='...' />
+        <MDBCardImage src={fdpic} fluid alt='...' />
        
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
@@ -100,7 +105,7 @@ return (
      <Col>
     <MDBCard style={{ maxWidth: '22rem', height:'25rem' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://www.agastiyarzones.com/image/Journal_Publication.png' fluid alt='...' />
+        <MDBCardImage src={publicpic} width="100%" fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}>
 
@@ -111,10 +116,10 @@ return (
       <MDBCardBody>
         <MDBCardTitle>Publication Details</MDBCardTitle>
         <MDBCardText>
-      retrieve, filter, sort and export as excel and pdf formats.
+      Retrieve, Filter, Sort and Export in excel formats.
         </MDBCardText>
         
-        <MDBBtn href='/search'>Show list</MDBBtn>
+        <MDBBtn href='/show-All'>Show list</MDBBtn>
       </MDBCardBody>
     </MDBCard>
   </Col> 
@@ -122,7 +127,7 @@ return (
   <Col>
     <MDBCard style={{ maxWidth: '22rem', height:'25rem' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://www.ohiodcca.org/wp-content/uploads/2015/12/Members-Only-License-Plate-Blue.jpg' width="70%" fluid alt='...' />
+        <MDBCardImage src={memberpic} width="80%" fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}>
 
@@ -143,7 +148,7 @@ return (
   <Col>
     <MDBCard style={{ maxWidth: '22rem', height:'25rem' }}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://images.static-collegedunia.com/public/college_data/images/campusimage/15873159111.jpg' fluid alt='...' />
+        <MDBCardImage src={official} fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>

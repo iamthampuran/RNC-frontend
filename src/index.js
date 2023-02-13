@@ -10,10 +10,9 @@ import {BrowserRouter} from "react-router-dom"
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import App1 from './App1'
-import Search from './components/page/Search'
+
 //import { Router } from 'express'
 import Home2 from './components/page/Home2'
-import Table from './components/page/Table'
 
 
 

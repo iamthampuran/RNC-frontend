@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Search.css"
 import { useState } from 'react'
 import axios from "axios";
-import MaterialTable from 'material-table';
-import './Table.css';
 import "./style.css"
-
+import ReactFlexyTable from "react-flexy-table"
+import "react-flexy-table/dist/index.css"
+import gdrive from "./Gdrive.png"
 
 function ShowEvents() {
   const navigate = useNavigate()
@@ -25,16 +25,10 @@ const cols = [
 ]
 console.log(1)
 
-// const handleSub=(e)=>{
-//     e.preventDefault()
-//     console.log(search)
-// }
 
-// }
-const handleChange = ({ currentTarget: input }) => {
-    //console.log("ghjk"+name1)
-    setData4({ [input.name]: input.value });
-};
+const newArray = listOfUsers.map(({eventN,venue,date,time,org,source}) => ({venue,eventN,date,time,org,source}));
+console.log(newArray);
+
 
 // const title="Mongto"  ###########can be used
 const handleS = async (e) => {
@@ -42,8 +36,11 @@ const handleS = async (e) => {
     // try {
         
         axios.get("http://34.100.147.79:3001/RNC/getEvents").then((response) => {
-            setListOfUsers(response.data.data);
+             if(response.data.status==="FAILED")
+            navigate('/home',{replace:true})
 
+            setListOfUsers(response.data.data);
+         
             console.log(listOfUsers)
             //alert(response.data.message)
            // print_all()                     //all publications retreival
@@ -53,13 +50,7 @@ const handleS = async (e) => {
             navigate('/home',{replace:true}) 
             }
 
-const print_all = () => {
-  
-  for(let i=0;i<5;i++)
-  {
-    console.log(listOfUsers[i].Title)
-  }
-}
+
  const handleSq= async (e) => {
             e.preventDefault()
              try {
@@ -81,11 +72,25 @@ const print_all = () => {
             setError(error.response.data.message)
         }
     }}
-    
-    function handleSChange(e) {
-        setName1(e.target.value);
-        console.log("--"+name1)
-      }
+    const downloadExcelProps = {
+      type: 'filtered',
+      title: 'Event Details',
+      showLabel: true
+    }
+
+   
+   
+     const additionalCols = [{
+       header: "click here to open link",
+       td: (newArray) => {
+         return<div>
+           <img src={gdrive} width="45" height="45" 
+           onClick= {(e)=>
+            window.open(newArray.source)
+           } /> 
+         </div>
+       }
+     }]
 
     return (
 <div className='search1'><br/>
@@ -97,69 +102,27 @@ const print_all = () => {
     <br></br>
     <button className="btn21 button21" onClick={handleS}>View all</button>&nbsp;
     <button className="btn21 button22" onClick={q}>Home</button>
-
+<br/>
+<br/>
 </form>
 
 
 
 
 
-        <div className='tabl'>
-        <MaterialTable
-
-options={{
-  exportButton: {
-      paging:true,
-      csv: true,
-      pdf:true,
-      
-  },   
-  headerStyle: {
-    backgroundColor: '#40ad9f',
-    color: '#FFF'
-  },
-  paging:true,
-  pageSize:100,       // make initial page size
-  emptyRowsWhenPaging: false,   // To avoid of having empty rows
-  pageSizeOptions:[5,10,20,50,100,200,500],
-}}
-localization={{
-  toolbar: {
-    exportCSVName: "Export as Excel format",
-    exportPDFName: "Export as pdf!!"
-           },
-    header: {
-      actions:'Links' 
-      }
-    }
-   
-}    
-
+<div style={{margin:"45px"}}>
   
-  actions={[
-    {
-       
-      icon:()=><button className='member'><h6>View</h6></button>,
-      tooltip: 'View the photos',
-      onClick: (event, rowData) => {
-        event.preventDefault()
-              const  id=rowData._id
-       // const url = "http://localhost:3001/RNC/verified";   
-        //const { data: res } = await axios.post(url, {title : title})  ### must be post 
-        /*axios.post(url, {"Title": rowData.Title,"Confirm": "Yes"}).then((response) => {
+  <ReactFlexyTable 
+             data={newArray} 
+             filterable 
+             sortable
+             nonSortCols={['source']} 
+      pageSizeOptions={[5,10,25,50,100,250,500]}
+      globalSearch
+      downloadExcelProps={downloadExcelProps}
+      showExcelButton
+      additionalCols={additionalCols}/>
 
-            console.log("aproving :"+rowData.Title) 
-            alert(response.data.message)               //required ones
-          })*/
-        window.open(rowData.source)
-       console.log(rowData.Title)
-      }
-    }
-  ]}
-  title={"Event Details"}
-  data ={listOfUsers}
-  columns = {cols}
-  />
   </div>
 </div>
     )

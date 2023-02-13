@@ -1,9 +1,8 @@
-//import {down} from './Down'
-//import Dropdown from 'react-bootstrap/Dropdown';
+
 import React, { Component } from 'react'
 
 import {useState} from 'react';
-//import 'bootstrap/dist/css/bootstrap.min.css';
+
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import DropdownButton from 'react-bootstrap/DropdownButton';

@@ -106,9 +106,10 @@ const [data, setData] = useState({ email: "", password: "" })
           <button  type="submit" className="btn btn-primary">
             Log In
           </button>
-          <br/>
+         
           <p className="forgot-password text-right">
           <a href="/sign-up"> new user ? Sign Up</a>
+          <a href="/forgot-password"> forgotten password ?</a>
         </p>
           
          

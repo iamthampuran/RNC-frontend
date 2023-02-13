@@ -5,8 +5,8 @@ import Col from 'react-bootstrap/col';
 import Row from 'react-bootstrap/Row';
 import imh1 from "../../images/logomits.png"
 import './Home2.css'
-
-
+import profile from "./profile.jpeg"
+import addnew from "./addnew.png"
 export default function Home2() {
   const slogout=()=>{
     localStorage.removeItem("token")
@@ -34,7 +34,7 @@ return (
     <Col>
     <MDBCard style={{ maxWidth: '22rem', height:'25rem'}}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://www.wiley.com/content/dam/wiley-dotcom/en/b2b/images/card/book-subketcs.png' fluid alt='...' />
+        <MDBCardImage src={addnew} fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}>
 
@@ -60,7 +60,7 @@ return (
     <Col>
     <MDBCard style={{ maxWidth: '22rem', height:'25rem'}}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src='https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg' fluid alt='...' />
+        <MDBCardImage src={profile} fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>

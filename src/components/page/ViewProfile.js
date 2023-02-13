@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 //rcfe
+import ReactFlexyTable from "react-flexy-table"
+import "react-flexy-table/dist/index.css"
 import axios from "axios";
-import MaterialTable from 'material-table';
 import { useNavigate } from "react-router-dom";
-import "./style.css"
+import styles from "./flexytable.css"
 
 function ViewProfile() {
     const navigate = useNavigate();
@@ -17,19 +18,19 @@ function ViewProfile() {
     const branch=localStorage.branch //localStorage.branch;
 
     const columns1=[
-        { title: 'Title', field: 'Title' },
-        { title: 'Author', field: 'Faculties' },
-        { title: 'Year', field: 'Year' },
-        { title: 'Journal Name', field: 'Name' },
-        { title: 'MITS Affiliation', field: 'Affiliated'}
+        { header: 'Title', key: 'Title' },
+        { header: 'Type of paper', key: 'Type' },
+        { header: 'Author', key: 'Faculties' },
+        { header: 'Year', key: 'Year' },
+        { header: 'Journal Name', key: 'Name' },
+        { header: 'MITS Affiliation', key: 'Affiliated'}
       ]
-      
-      const data1=[{title: 'Mehmet', author: 'Baran',year: 1987, nameJ: 'rghj'},
-                             {title: 'wertt', author: 'Baryytran',year: 2987, nameJ: 'rplmjd'}
-                  ]
-                  const q=()=>{
-                    navigate('/home',{replace:true}) 
-                    }
+//       const newArray = listOfUsers.map(({Title,Type, Year,Name,Faculties,Affiliated}) => ({Title, Type,Year,Name,Faculties,Affiliated}));
+// console.log(newArray);
+
+     const q=()=>{
+               navigate('/home',{replace:true}) 
+              }
                 
     const handleSq= async (e) => {
         if(choose==="approved")
@@ -37,9 +38,12 @@ function ViewProfile() {
             console.log("APPROVED ")
 
             e.preventDefault()
-       const url = "http://34.100.147.79:3001/RNC/viewprofileapp"; //url to fetch details from permanent table
+       const url = "http://34.100.147.79:3001/RNC//viewprofileapp"; // url to fetch details from permanent table
        //const { data: res } = await axios.post(url, {title : title})  ### must be post 
        axios.post(url,{name:name,branch:branch}).then((response) => {
+        if(response.data.status==="FAILED")
+        navigate('/home',{replace:true})
+
            setListOfUsers(response.data.data);
            console.log(response.data)
            alert(response.data.message) 
@@ -52,6 +56,9 @@ function ViewProfile() {
             const url = "http://34.100.147.79:3001/RNC/viewprofilereject"; //url to fetch details from rejected table
            // const { data: res } = await axios.post(url, {title : title})  // must be post 
             axios.post(url,{name:name,branch:branch}).then((response) => {
+              if(response.data.status==="FAILED")
+        navigate('/home',{replace:true})
+        
                 console.log(response.data)
                 setListOfUsers(response.data.removed);
                 alert(response.data.message)
@@ -59,15 +66,17 @@ function ViewProfile() {
             //    console.log(setListOfUsers) 
             })
         } 
+       
 }
 
-//     console.log(title)
-// const qw =(e) => {
-//     e.preventDefault()
-//     console.log("sdcvhnm,")
-//     //location.href = 'http://www.google.com';
-//     const url ='https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q='  +{title}+ '&btnG='
-//     window.open(url);}
+
+
+const downloadExcelProps = {
+  type: 'filtered',
+  title: 'Details',
+  showLabel: true
+}
+
   return (
 <div className='search1'>
     
@@ -84,11 +93,21 @@ function ViewProfile() {
      <button className="btn21 button22 " onClick={q}>Home</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      </h5>
 <div style={{margin:"25px"}}>
-     <MaterialTable
-    title={"List of Publications"}
-    data={listOfUsers}
+     
+ 
+
+      <ReactFlexyTable 
+     
+      data={listOfUsers}
+      filterable 
+      sortable
+      pageSizeOptions={[5,10,25,50,100,250,500]}
+      globalSearch
+      downloadExcelProps={downloadExcelProps}
+      showExcelButton
       columns={columns1}
-       />
+      />
+
        </div>
     </div>
   )

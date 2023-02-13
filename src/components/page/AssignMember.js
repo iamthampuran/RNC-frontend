@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Search.css"
 import { useState } from 'react'
 import axios from "axios";
-import Table from './Table'
 import "./style.css"
-
+import ReactFlexyTable from "react-flexy-table"
+import "react-flexy-table/dist/index.css"
+import assignpic from "./assign.png"
 
 function AssignMember() {
   const navigate = useNavigate()
@@ -13,43 +14,57 @@ const [listOfUsers, setListOfUsers] = useState([]);
 const [data4, setData4] = useState([])
 const [name1,setName1]=useState("title")
 const [error, setError] = useState("");
+
 const cols = [
   { title: 'Name', field: 'name' },
   { title: 'Branch', field: 'branch' },
   { title: 'Role', field: 'type', type: 'Text' },
  // { title: 'Journal Name', field: 'nameJ' }
 ]
+const newArray = listOfUsers.map(({name,email,branch,type}) => ({name,email,branch,type}));
+console.log(newArray);
 
-// const handleSub=(e)=>{
-//     e.preventDefault()
-//     console.log(search)
-// }
+const url = "http://localhost:3001/RNC/assignmember";
+ 
+             const downloadExcelProps = {
+                   type: 'filtered',
+                   title: 'List of members',
+                   showLabel: true
+                  }
 
-// }
-const handleChange = ({ currentTarget: input }) => {
-    //console.log("ghjk"+name1)
-    setData4({ [input.name]: input.value });
-};
-
+          const additionalCols = [{
+                    header: "Assign as member",
+                    td: (newArray) => {
+                      return<div>
+                        <img src={assignpic} width="45" height="45" 
+                        onClick= {(e)=>
+                         
+                           axios.post(url, {"name": newArray.name,"branch": newArray.branch,"email":newArray.email}).then((response) => {
+                    //  console.log("approve :"+newArray.name) 
+                      alert(response.data.message)    
+                      navigate('/home',{replace:true}) 
+                        })
+              
+                        } /> 
+                      </div>
+                    }
+                  }]
 // const title="Mongto"  ###########can be used
 const handleS = async (e) => {
     e.preventDefault()
     // try {
         
         axios.get("http://34.100.147.79:3001/RNC/getFaculties").then((response) => {
-            setListOfUsers(response.data.data);
-            console.log(listOfUsers)
+
+        if(response.data.status==="FAILED")
+               navigate('/home',{replace:true})
+
+             setListOfUsers(response.data.data);
+             console.log(listOfUsers)      
             //alert(response.data.message)
            // print_all()                     //all publications retreival
            
           });}
-const print_all = () => {
-  
-  for(let i=0;i<5;i++)
-  {
-    console.log(listOfUsers[i].Title)
-  }
-}
 const q=()=>{
   navigate('/home',{replace:true}) 
   }
@@ -61,7 +76,7 @@ const q=()=>{
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
-            console.log(listOfUsers)                //required ones
+                      //required ones
           })
         //navigate("/sign-in")
         //console.log(res.message)
@@ -76,10 +91,7 @@ const q=()=>{
         }
     }}
     
-    function handleSChange(e) {
-        setName1(e.target.value);
-        console.log("--"+name1)
-      }
+   
 
     return (
 <div className='search1'><br/>
@@ -92,12 +104,17 @@ const q=()=>{
     <button className="btn21 button22" onClick={q}>Home</button>
 
 </form>
-        <div class="container">
-          <Table
-            title_name={"Faculties"}
-         col={cols} data={listOfUsers} buttonname ={"Assign"} 
-        event = {"http://34.100.147.79:3001/RNC/assignmember"} action = {"Member"}
-       />
+<div style={{margin:"45px"}}>
+                <ReactFlexyTable
+                data={newArray}
+                filterable 
+                sortable
+               pageSizeOptions={[5,10,25,50,100,250,500]}
+                globalSearch
+                downloadExcelProps={downloadExcelProps}
+                showExcelButton
+                additionalCols={additionalCols}/>
+
         </div>
         
 <br/></div>

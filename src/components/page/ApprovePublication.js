@@ -2,11 +2,11 @@ import React from 'react'
 import "./Search.css"
 import { useState } from 'react'
 import axios from "axios";
-import MaterialTable from 'material-table';
-
-import { Title } from '@material-ui/icons';
+import ReactFlexyTable from "react-flexy-table"
+import "react-flexy-table/dist/index.css"
 import {useNavigate} from "react-router-dom"
-
+import approve from "./approve.jpeg"
+import reject from "./deleteIcon.png"
 
 
 function ApprovePublication() {
@@ -14,19 +14,12 @@ function ApprovePublication() {
     const navigate = useNavigate()
     const branch =localStorage.branch;
     const [listOfUsers, setListOfUsers] = useState([]);
-    const columns1=[
-        { title: 'Title', field: 'Title' },
-        { title: 'Author', field: 'Faculties' },
-        { title: 'Year', field: 'Year'},
-        { title: 'Journal Name', field: 'Name' },
-        { title: 'Branch', field: 'Branch'},
-        { title: 'Details', field: 'Details'},
-        { title: 'MITS Affiliated', field : 'Affiliated '}
-      ]
+    
       const q=()=>{
         navigate('/home',{replace:true}) 
         }
-
+  
+      
         const [choose,setChoose]=useState("")
         const [choose2,setChoose2]=useState("")//initiating choose2 as null
         const [choose3,setChoose3]=useState("")
@@ -55,21 +48,78 @@ function ApprovePublication() {
     }
    
  const handleS= async (e) => {
-            e.preventDefault()
+           e.preventDefault()
             
             axios.post("http://34.100.147.79:3001/RNC/public",{Branch: branch}).then((response) => {
                 console.log(response.data)
+                if(response.data.status==="FAILED")
+               navigate('/home',{replace:true})
                 setListOfUsers(response.data.data);
                 //console.log(response.data)
                  //navigate("/home")
-                  //console.log(res.message)  
+                  console.log(response.data.message)  
                 alert(response.data.message)
-              });}
+                
+              }); 
+            }
+
+         const newArray = listOfUsers.map(({Title,Faculties,Branch,Affiliated, ImpactFactor,Name,SubType,Type,Year}) => ({Affiliated, Branch,Faculties,ImpactFactor,Name,SubType,Title,Type,Year}));
+               console.log(newArray);
+                      
+                    
+           
+            
+       
               // var ab="name"
               // var url = "http://www.google.comsearch?q="+{ab};
               //const id="abc"
              // <a href={'https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q='  +id+ '&btnG='} target="_blank">click here</a>
-    return (
+   
+   
+             const url = "http://34.100.147.79:3001/RNC/verified"; //link of api,which delete from temp table n store details to rejected table  
+ 
+             const downloadExcelProps = {
+                   type: 'filtered',
+                   title: 'Details',
+                   showLabel: true
+                  }
+   
+                  const additionalCols = [{
+                    header: "Approve",
+                    td: (newArray) => {
+                      return<div>
+                        <img src={approve} width="45" height="45" 
+                        onClick= {(e)=>
+                         
+                           axios.post(url, {"Title": newArray.Title,"Confirm": "Yes"}).then((response) => {
+                      console.log("approve :"+newArray.Title) 
+                      alert(response.data.message)    
+                        //  e.preventDefault() no need
+                        })
+              
+                        } /> 
+                      </div>
+                    }
+                  },{
+                   header: "Reject",
+                   td: (newArray) => {
+                    return<div>
+                    <img src={reject} width="40" height="40" 
+                    onClick= {(e)=>
+                     
+                       axios.post(url, {"Title":newArray.Title,"Confirm": "No"}).then((response) => {
+                  console.log("Rejecting :"+newArray.Title) 
+                  alert(response.data.message)    
+                       //  e.preventDefault() no need
+                    })
+          
+                    } /> 
+                       </div>
+                   }
+                 }
+                 ]
+   
+             return (
       <div>
 <div className='details'>
 <h1 className='search'>Verification of publication details </h1>
@@ -101,51 +151,23 @@ Enter name of author to search on Scopus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&n
 <button className="btn21 button21" onClick={handle3}>Search on Scopus</button><br/><br/>
 </h6><br/>
 </div>
-<div class="container">
-<MaterialTable
-  
-  actions={[
-    {
-       
-      icon:()=><button><h6>Approve</h6></button>,
-      tooltip: 'Approve this publication',
-      onClick: (event, rowData) => {
-        event.preventDefault()
-              const  id=rowData._id
-        const url = "http://34.100.147.79:3001/RNC/verified";   
-        //const { data: res } = await axios.post(url, {title : title})  ### must be post 
-        axios.post(url, {"Title": rowData.Title,"Confirm": "Yes"}).then((response) => {
 
-            console.log("aproving :"+rowData.Title) 
-            alert(response.data.message)               //required ones
-          })
-       console.log(rowData.Title)
-      }
-    }, {
-       
-        icon:()=><button><h6>Decline</h6></button>,
-        tooltip: 'Reject this publication',
-        onClick: (event, rowData) => {
-            event.preventDefault()
-                  const  id=rowData._id
-            const url = "http://34.100.147.79:3001/RNC/verified"; //link of api,which delete from temp table n store details to rejected table  
-            //const { data: res } = await axios.post(url, {title : title})  ### must be post 
-            axios.post(url, {"Title": rowData.Title,"Confirm": "No"}).then((response) => {
-                console.log("rejecting :"+rowData.title) 
-                alert(response.data.message)    
-               // console.log(listOfUsers)                //required ones
-              })
-           console.log(rowData._id)
-            }
-        }
 
+<div style={{margin:"25px"}}>
+
+     <ReactFlexyTable
+      data={newArray}
+      filterable 
+      sortable
+     pageSizeOptions={[5,10,25,50,100,250,500]}
+      globalSearch
+      downloadExcelProps={downloadExcelProps}
+      showExcelButton
+      additionalCols={additionalCols}/>
+   
        
-  ]}
-  title={"Publication Details"}
-    data={listOfUsers}
-      columns={columns1}
-       />
 </div>
+
 <br/></div>
     )
     }

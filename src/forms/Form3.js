@@ -126,6 +126,20 @@ const navigate =useNavigate();
           onChange={handleChange}
           
         />
+
+<br/>
+        <label>Reimbursed amount</label>
+        <br />
+        <input style={{ width:"500px" }}
+          className="input"
+          type="number"
+          //id="fname"
+          name="reimbursed"
+          placeholder="Enter the reimbursed amount"
+          //value={fee}
+          onChange={handleChange}
+          
+        />
  
             <br />
         <label htmlFor="fname">Name of Institute</label>
@@ -138,7 +152,22 @@ const navigate =useNavigate();
           name="institute"
           placeholder="Enter name of the institute"
           onChange={handleChange}
-        /><br/>  <br />
+        /><br/> 
+        
+        <label>Branch</label>
+        <br />
+        <input style={{ width:"500px" }}
+          className="input"
+          type="text"
+          //id="fname"
+          name="branch"
+          placeholder="Enter the branch(CSE,ME,EEE,ECE,CE)"
+          //value={fee}
+          onChange={handleChange}
+          
+        />
+
+        <br /><br />
               <label htmlFor="fname">Type of institute</label>
         
         {/* <br />
@@ -151,6 +180,7 @@ const navigate =useNavigate();
           placeholder="NIT/IIT/GOVT/PVT"
           onChange={handleChange}
         /> */}
+        
 
 &nbsp; &nbsp; 
 <select
@@ -164,8 +194,10 @@ const navigate =useNavigate();
 
             </select>
 
+        
+
         <br />
-        <br />
+
         <button type='submit'>Submit</button>
         <br /><br />
         <button onClick={q}>Cancel</button>
