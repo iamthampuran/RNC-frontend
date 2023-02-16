@@ -23,7 +23,8 @@ const cols = [
 ]
 console.log(1)
 
-const newArray = listOfUsers.map(({title,name,agency,GoP,year,amount,dept}) => ({title,name,agency,GoP,year,amount,dept}));
+//const newArray = listOfUsers.map(({title,name,agency,GoP,year,amount,dept}) => ({title,name,agency,GoP,year,amount,dept}));
+
 
 const downloadExcelProps = {
         type: 'filtered',
@@ -35,10 +36,11 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://34.100.147.79:3001/RNC/getAll").then((response) => {
-            setListOfUsers(response.data.data);
+        axios.get("http://localhost:3001/RNC/getAll").then((response) => {
+          setListOfUsers(response.data.usefuldetails)
+            // setListOfUsers(response.data.data);
 
-            console.log(listOfUsers)
+            
             //alert(response.data.message)
            // print_all()                     //all publications retreival
            
@@ -51,7 +53,7 @@ const handleS = async (e) => {
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://34.100.147.79:3001/RNC/getAll";
+        const url = "http://localhost:3001/RNC/getAll";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
@@ -99,7 +101,7 @@ const handleS = async (e) => {
       globalSearch
       downloadExcelProps={downloadExcelProps}
       showExcelButton
-      columns={cols}
+      //columns={cols}
       />
           </div>
         

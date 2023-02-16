@@ -9,11 +9,14 @@ function Form4() {
 
   const [data4, setData4] = useState({
 		
-		eventN: "",
-    venue: "",
-		org: "",
-		date: "",
-    time: ""
+		Event_Name: "",
+    Venue: "",
+		Organisation: "",
+		Date: "",
+    Time: "",
+    Source: "",
+    Branch:""
+
 	})
   let eventl
   const navigate = useNavigate();
@@ -31,10 +34,10 @@ function Form4() {
 	const handleSub = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://34.100.147.79:3001/RNC/AddEvent";
+			const url = "http://localhost:3001/RNC/AddEvent";
 			const { data: res } = await axios.post(url, data4);
-      //console.log("______"+res.data.eventN);
-      console.log("______"+res.data.eventN);
+      //console.log("______"+res.data.Event_Name);
+      console.log("______"+res.data.Event_Name);
        eventl= res.data;
       console.log(eventl);
 			//navigate("/home");
@@ -58,9 +61,9 @@ function Form4() {
   return (
     
     <div className="signupParentDiv">
-    <h3 >enter the details of event..</h3>
+    <h3 >Enter the Details of Event</h3>
       <form >
-        <label>Name of event</label>
+        <label style={{margin:"10px 0px 0px 0px"}}>Name of event</label>
         <br />
         <input style={{ width:"500px" }}
           className="input"
@@ -69,16 +72,16 @@ function Form4() {
           //name="name"
           placeholder="Enter the Name of Event"
          // value={year}
-          name="eventN"
+          name="Event_Name"
           onChange={handleChange}
-          value={data4.eventN}
+          value={data4.Event_Name}
           required
 
             //onChange={(e)=>setYear(e.target.value)}
           
         />
         <br />
-        <label htmlFor="fname">venue</label>
+        <label style={{margin:"10px 0px 0px 0px"}} htmlFor="fname">Venue</label>
         <br />
         <input
          style={{ width:"500px" }}
@@ -86,16 +89,16 @@ function Form4() {
           type="text"
           
           placeholder="Enter the Venue"
-          name="venue"
+          name="Venue"
           onChange={handleChange}
-          value={data4.venue}
+          value={data4.Venue}
           required
           //value={title}
            // onChange={(e)=>setTitle(e.target.value)}
           
         />
         <br />
-        <label htmlFor="lname">Organized by</label>
+        <label style={{margin:"10px 0px 0px 0px"}} htmlFor="lname">Organized by</label>
         <br />
         <input
          style={{ width:"500px" }}
@@ -104,46 +107,46 @@ function Form4() {
           //id="lname"
           //name="phone"
           placeholder="organizer's name"
-          name="org"
+          name="Organisation"
           onChange={handleChange}
-          value={data4.org}
+          value={data4.Organisation}
           required
 
           
         />
          <br />
-        <label htmlFor="lname">Date of event</label>
-        <br />
+        <label style={{margin:"20px 10px 0px 10px"}} htmlFor="lname">Date of event</label>
+        
         <input
-          style={{ width:"500px" }}
+          style={{ width:"120px" }}
           className="input"
           type="text"
           //id="lname"
           //name="phone"
           placeholder="MM/DD/YYY"
-          name="date"
+          name="Date"
               onChange={handleChange}
-              value={data4.date}
+              value={data4.Date}
               required
         />
-         <br />
-        <label htmlFor="lname">Time</label>
-        <br />
+         
+        <label style={{margin:"10px 10px 0px 30px"}} htmlFor="lname">Time</label>
+        
         <input
-          style={{ width:"500px" }}
+          style={{ width:"130px" }}
           className="input"
           type="text"
           //id="lname"
           //name="phone"
           placeholder="HH:MM AM/PM"
-          name="time"
+          name="Time"
               onChange={handleChange}
-              value={data4.time}
+              value={data4.Time}
               required
         />
 
 <br />
-        <label htmlFor="lname">Source</label>
+        <label style={{margin:"10px 0px 0px 0px"}} htmlFor="lname">Source</label>
         <br />
         <input
           style={{ width:"500px" }}
@@ -152,12 +155,30 @@ function Form4() {
           //id="lname"
           //name="phone"
           placeholder="Drive/OneDrive/Source Link"
-          name="source"
+          name="Source"
               onChange={handleChange}
-              value={data4.source}
-              required
+              value={data4.Source}
+              
         />
         
+        
+        <br />
+        <label style={{margin:"10px 0px 0px 0px"}} htmlFor="lname">Branch</label>
+        <br />
+        <input
+          style={{ width:"500px" }}
+          className="input"
+          type="text"
+          //id="lname"
+          //name="phone"
+          placeholder="CSE/ME/AI/CE/ECE..."
+          name="Branch"
+              onChange={handleChange}
+              value={data4.Branch}
+              
+        />
+        
+        <br />
         <br />
         <br />
         <button  onClick={handleSub}>Submit</button>

@@ -50,7 +50,7 @@ function ApprovePublication() {
  const handleS= async (e) => {
            e.preventDefault()
             
-            axios.post("http://34.100.147.79:3001/RNC/public",{Branch: branch}).then((response) => {
+            axios.post("http://localhost:3001/RNC/public",{Branch: branch}).then((response) => {
                 console.log(response.data)
                 if(response.data.status==="FAILED")
                navigate('/home',{replace:true})
@@ -76,7 +76,7 @@ function ApprovePublication() {
              // <a href={'https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q='  +id+ '&btnG='} target="_blank">click here</a>
    
    
-             const url = "http://34.100.147.79:3001/RNC/verified"; //link of api,which delete from temp table n store details to rejected table  
+             const url = "http://localhost:3001/RNC/verified"; //link of api,which delete from temp table n store details to rejected table  
  
              const downloadExcelProps = {
                    type: 'filtered',

@@ -34,7 +34,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://34.100.147.79:3001/RNC/getFP").then((response) => {
+        axios.get("http://localhost:3001/RNC/getFP").then((response) => {
             if(response.data.status==="FAILED")
                 navigate('/home',{replace:true})
             
@@ -51,7 +51,7 @@ const q=()=>{
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://34.100.147.79:3001/RNC/getFP";
+        const url = "http://localhost:3001/RNC/getFP";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.get(url, data4).then((response) => {
             if(response.data.status==="FAILED")
